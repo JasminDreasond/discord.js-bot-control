@@ -27,7 +27,7 @@ While in root directory of your server run:
 ```
 npm install discord.js-bot-control
 ```
-And in your `server` file:
+And prepare your `server` script:
 ```javascript
 
 // Get Modules
@@ -170,6 +170,8 @@ dbc.start({
 You and bot administrators need to activate Discord developer mode, as you will need to obtain the channel IDs, users, and other varieties of information to execute the commands. The other users don't have to do anything, they just need to interact with your bot.
 
 To see the command list, type !help in the DM Bot Channel. (if your prefix is set to "!")
+
+When you run the application, all users who are bot administrators will receive the application's welcome message. You can disable this by changing the `welcome` value to false.
 
 <hr/>
 
