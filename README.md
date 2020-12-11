@@ -1150,23 +1150,23 @@ Event Type executed.
 ### data.value
 Object containing the two messages connected to perform the synchronized function.
 
-### data.value[item_1/item_2].made
+### data.value[receiver/transmitter].made
 This value is a synchronizer! Modify it at your own risk!
 
-### data.value[item_1/item_2].author
+### data.value[receiver/transmitter].author
 Discord.JS Author Object.
 
-### data.value[item_1/item_2].type
+### data.value[receiver/transmitter].type
 Event Type executed.
 
-### data.value[item_1/item_2].msg
+### data.value[receiver/transmitter].msg
 Discord.JS Message Object.
 
-### data.value[item_1/item_2].origin
+### data.value[receiver/transmitter].origin
 Message Origin Data to synchronize messages.
 
-### data.value[item_1/item_2].origin.channel
+### data.value[receiver/transmitter].origin.channel
 The Channel ID synced.
 
-### data.value[item_1/item_2].origin.id
+### data.value[receiver/transmitter].origin.id
 The Message ID synced.
