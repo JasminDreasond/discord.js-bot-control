@@ -161,7 +161,7 @@ module.exports = async function (data, token, anti_user_repeat, safeDS) {
             }
 
             // Send Warn
-            const warn_message = safeDS.console.discord.log(`${safeDS.lang.get('welcome_1', data.lang)}\n${safeDS.lang.get('welcome_2', data.lang)}\n${safeDS.lang.get('welcome_3', data.lang)}\n${safeDS.lang.get('welcome_4', data.lang)}${dm_warn_message}`.replace(/\{appname\}/g, safeDS.appName).replace('{author}', safeDS.functions.getModuleAuthor()).replace('{homepage}', safeDS.package.homepage).replace('{patreon}', safeDS.package.patreon).replace(/\{prefix\}/g, data.prefix));
+            const warn_message = safeDS.console.discord.log(`${safeDS.lang.get('welcome_1', data.lang)}\n${safeDS.lang.get('welcome_2', data.lang)}\n${safeDS.lang.get('welcome_3', data.lang)}\n${safeDS.lang.get('welcome_4', data.lang)}${dm_warn_message}`.replace(/\{appname\}/g, safeDS.appName).replace('{author}', safeDS.functions.getModuleAuthor()).replace('{homepage}', safeDS.package.homepage).replace('{patreon}', safeDS.package.patreon).replace('{discord_invite}', safeDS.discordInvite).replace(/\{prefix\}/g, data.prefix));
 
             // Prepare Welcome
             let use_welcome = false;

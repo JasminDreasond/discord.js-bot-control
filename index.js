@@ -11,6 +11,7 @@ safeDS.messageCache.start(safeDS);
 // Main Items
 safeDS.package = require('./package.json');
 safeDS.appName = 'Discord Bot Control';
+safeDS.discordInvite = 'https://discord.gg/TgHdvJd';
 
 // Console Log
 safeDS.console = require('./functions/console');
