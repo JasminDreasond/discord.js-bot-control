@@ -99,6 +99,26 @@ safeDS.functions = {
         return safeDS.lang.get('pagination_base', dataLang).replace('{currect_page}', paginateCollection.currentPage).replace('{total}', paginateCollection.total).replace('{total_pages}', paginateCollection.totalPages);
     },
 
+    // Get Package Author
+    getModuleAuthor: function() {
+        
+        // String
+        if(typeof safeDS.package.author === "string"){
+            return safeDS.package.author;
+        }
+
+        // Object
+        if(typeof safeDS.package.author.name === "string"){
+            return safeDS.package.author.name;
+        }
+
+        // What
+        else {
+            return '{ERROR GET AUTHOR NAME}';
+        }
+
+    },
+
     // Start Bot
     start: async function (data, token, anti_user_repeat) { return await require('./functions/start_bot')(data, token, anti_user_repeat, safeDS); },
 

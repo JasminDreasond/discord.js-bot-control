@@ -33,7 +33,7 @@ module.exports = {
 
     // Welcome Message
     welcome_1: `{appname} está online neste bot agora!`,
-    welcome_2: `{appname} feito por {author} ({homepage}). Patreon: {patreon}`,
+    welcome_2: `{appname} feito por {author} ({homepage}). Patreon: {patreon} | Discord: {discord_invite}`,
     welcome_3: `Lembre-se: Se este bot não tiver um banco de dados, todas as suas configurações serão redefinidas durante a inicialização.`,
     welcome_4: `Digite: \`\`{prefix}help\`\` para ver os comandos que você pode usar neste canal de DM.`,
 
