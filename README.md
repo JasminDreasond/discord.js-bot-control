@@ -3,7 +3,6 @@
     <a href="https://discord.gg/TgHdvJd"><img src="https://img.shields.io/discord/413193536188579841?color=7289da&logo=discord&logoColor=white" alt="Discord server" /></a>
     <a href="https://www.npmjs.com/package/discord.js-bot-control"><img src="https://img.shields.io/npm/v/discord.js-bot-control.svg?maxAge=3600" alt="NPM version" /></a>
     <a href="https://www.npmjs.com/package/discord.js-bot-control"><img src="https://img.shields.io/npm/dt/discord.js-bot-control.svg?maxAge=3600" alt="NPM downloads" /></a>
-    <a href="https://github.com/JasminDreasond/discord.js-bot-control/actions"><img src="https://github.com/JasminDreasond/discord.js-bot-control/workflows/Testing/badge.svg" alt="Build status" /></a>
     <a href="https://david-dm.org/JasminDreasond/discord.js-bot-control"><img src="https://img.shields.io/david/JasminDreasond/discord.js-bot-control.svg?maxAge=3600" alt="Dependencies" /></a>
     <a href="https://www.patreon.com/JasminDreasond"><img src="https://img.shields.io/badge/donate-patreon-F96854.svg" alt="Patreon" /></a>
 </p>
