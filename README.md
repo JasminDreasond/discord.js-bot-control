@@ -173,6 +173,10 @@ To see the command list, type !help in the DM Bot Channel. (if your prefix is se
 
 When you run the application, all users who are bot administrators will receive the application's welcome message. You can disable this by changing the `welcome` value of the global and bot value to false.
 
+The storage folder will store a cache of things that happen in your bot.
+The log folder will store reports of things that happen in your bot.
+The sound folder will store folders where you can place random sounds to play with your friends on the server.
+
 <hr/>
 
 ## Reactions
