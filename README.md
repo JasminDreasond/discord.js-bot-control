@@ -171,7 +171,7 @@ You and bot administrators need to activate Discord developer mode, as you will 
 
 To see the command list, type !help in the DM Bot Channel. (if your prefix is set to "!")
 
-When you run the application, all users who are bot administrators will receive the application's welcome message. You can disable this by changing the `welcome` value to false.
+When you run the application, all users who are bot administrators will receive the application's welcome message. You can disable this by changing the `welcome` value of the global and bot value to false.
 
 <hr/>
 
