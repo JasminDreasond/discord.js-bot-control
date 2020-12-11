@@ -1,6 +1,7 @@
 <div align="center">
 <p>
     <a href="https://discord.gg/TgHdvJd"><img src="https://img.shields.io/discord/413193536188579841?color=7289da&logo=discord&logoColor=white" alt="Discord server" /></a>
+    <a href="https://discord.js.org/" rel="nofollow"><img alt="discord.js Version" src="https://img.shields.io/npm/dependency-version/discord.js-bot-control/discord.js" style="max-width:100%;"></a>
     <a href="https://www.npmjs.com/package/discord.js-bot-control"><img src="https://img.shields.io/npm/v/discord.js-bot-control.svg?maxAge=3600" alt="NPM version" /></a>
     <a href="https://www.npmjs.com/package/discord.js-bot-control"><img src="https://img.shields.io/npm/dt/discord.js-bot-control.svg?maxAge=3600" alt="NPM downloads" /></a>
     <a href="https://david-dm.org/JasminDreasond/discord.js-bot-control"><img src="https://img.shields.io/david/JasminDreasond/discord.js-bot-control.svg?maxAge=3600" alt="Dependencies" /></a>
