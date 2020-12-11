@@ -32,7 +32,12 @@
   "devDependencies": {
     "opusscript": "0.0.7"
   },
-  "keywords" : [
-    "discord.js", "plugin", "bot control", "bot sound", "fun", "tools"
+  "keywords": [
+    "discord.js",
+    "plugin",
+    "bot control",
+    "bot sound",
+    "fun",
+    "tools"
   ]
 }
