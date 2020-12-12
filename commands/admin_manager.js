@@ -453,7 +453,11 @@ module.exports = {
                                 }
 
                                 // Get Items
-                                paginateCollection = paginate(data[whereItem], message_value[2], 10);
+                                if (Array.isArray(data[whereItem])) {
+                                    paginateCollection = paginate(data[whereItem], message_value[2], 10);
+                                } else {
+                                    paginateCollection = paginate([], message_value[2], 10);
+                                }
 
                             }
 
@@ -465,7 +469,11 @@ module.exports = {
                                 groupVariable = 'adminRoles';
 
                                 // Get Items
-                                paginateCollection = paginate(data.adminRoles, message_value[2], 10);
+                                if (Array.isArray(data.adminRoles)) {
+                                    paginateCollection = paginate(data.adminRoles, message_value[2], 10);
+                                } else {
+                                    paginateCollection = paginate([], message_value[2], 10);
+                                }
 
                             }
 
@@ -479,7 +487,11 @@ module.exports = {
                             groupVariable = '🔑 superAdmin';
 
                             // Get Items
-                            paginateCollection = paginate(safeDS.config.superAdmin, message_value[2], 10);
+                            if (Array.isArray(safeDS.config.superAdmin)) {
+                                paginateCollection = paginate(safeDS.config.superAdmin, message_value[2], 10);
+                            } else {
+                                paginateCollection = paginate([], message_value[2], 10);
+                            }
 
                         }
 

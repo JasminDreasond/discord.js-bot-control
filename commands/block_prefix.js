@@ -195,9 +195,15 @@ module.exports = {
                     }
 
                     // Get Items
-                    let paginateCollection = paginate(data.block_prefix, page, 10);
+                    let paginateCollection = null;
 
-                    
+                    // Items
+                    if (Array.isArray(data.block_prefix)) {
+                        paginateCollection = paginate(data.block_prefix, page, 10);
+                    } else {
+                        paginateCollection = paginate([], page, 10);
+                    }
+
                     // Prepare Field
                     const tiny_field = [];
 

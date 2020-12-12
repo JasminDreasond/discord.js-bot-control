@@ -54,7 +54,15 @@ module.exports = {
                     }
 
                     // Get Items
-                    let paginateCollection = paginate(safeDS.lang.getList(), page, 10);
+                    let paginateCollection = null;
+                    const lang_list_here = safeDS.lang.getList();
+
+                    // Items
+                    if (Array.isArray(lang_list_here)) {
+                        paginateCollection = paginate(lang_list_here, page, 10);
+                    } else {
+                        paginateCollection = paginate([], page, 10);
+                    }
 
                     // Prepare Field
                     const tiny_field = [];
