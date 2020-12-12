@@ -14,7 +14,7 @@ module.exports = {
             if (message_value.length > 0 && message_value[0] !== "") {
 
                 // Get Value to Change
-                const result = safeDS.configManager.bot.get(data.index, 'block_prefix', safeDS);
+                let result = safeDS.configManager.bot.get(data.index, 'block_prefix', safeDS);
 
                 // Lang Text
                 let message_lang_name = '';

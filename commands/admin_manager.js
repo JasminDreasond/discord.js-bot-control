@@ -64,7 +64,7 @@ module.exports = {
                                 if (message_value[2] && message_value[2].id && message_value[2].id !== "") {
 
                                     // Get Value to Change
-                                    const result = safeDS.configManager.bot.get(data.index, config_option, safeDS);
+                                    let result = safeDS.configManager.bot.get(data.index, config_option, safeDS);
 
                                     // Check
                                     if (!Array.isArray(result)) {
@@ -314,7 +314,7 @@ module.exports = {
                             if (typeof message_value[2] !== "string") {
 
                                 // Get Value to Change
-                                const result = safeDS.configManager.bot.get(data.index, null, safeDS)[config_option];
+                                let result = safeDS.configManager.bot.get(data.index, null, safeDS)[config_option];
 
                                 // Is Empty
                                 if (result.length > 0) {

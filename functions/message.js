@@ -9,7 +9,7 @@ module.exports = async (msg, data, safeDS, ds) => {
             // Perm Checker
             const permission_checker = async function () {
                 const pm = require('./permission_checker');
-                const result = await pm(msg.client.guilds, msg.author.id, data.index, safeDS);
+                let result = await pm(msg.client.guilds, msg.author.id, data.index, safeDS);
                 return result;
             };
 

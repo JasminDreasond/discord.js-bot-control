@@ -11,7 +11,7 @@ const settings_manager = {
         set: async function (where, value, safeDS) {
 
             // Result
-            const result = { success: false };
+            let result = { success: false };
 
             // Validate Where
             if (typeof where === "string" && where !== "discord" && where !== "commands" && where !== "storage_folder" && where !== "sound_folder" && where !== "log_folder" && where !== "log_timezone" && where !== "log_time_24hours") {
@@ -101,7 +101,7 @@ const settings_manager = {
         set: async function (index, where, value, safeDS) {
 
             // Result
-            const result = { success: false };
+            let result = { success: false };
 
             // Validate Index and Where
             if (settings_manager.bot.validatorIndex(index, safeDS) && typeof where === "string" && where !== "token" && where !== "users" && where !== "commands" && where !== "sound_folder") {
@@ -227,7 +227,7 @@ const settings_manager = {
         set: async function (b_index, index, where, value, safeDS) {
 
             // Result
-            const result = { success: false };
+            let result = { success: false };
 
             // Exist Bot
             if (safeDS.config.discord.bots[b_index]) {
@@ -527,7 +527,7 @@ const settings_manager = {
             // Delete Function
             const delete_items = async function (b_index) {
 
-                const result = [];
+                let result = [];
 
                 // Detect Count
                 if (safeDS.config.discord.bots[b_index].users) {
