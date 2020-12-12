@@ -41,7 +41,12 @@ module.exports = {
                                 else {
                                     try {
 
-                                        message_value[2] = await msg.client.guilds.fetch(message_value[2]);
+                                        // Guild Try
+                                        let try_guild = msg.client.guilds.resolve(message_value[2]);
+                                        if (!try_guild) { message_value[2] = await msg.client.guilds.fetch(message_value[2]); } else {
+                                            message_value[2] = try_guild;
+                                        }
+
                                         try {
                                             message_value[3] = await message_value[2].roles.fetch(message_value[3]);
                                         } catch (err) {
@@ -118,7 +123,7 @@ module.exports = {
                                             }
 
                                             // Send Message
-                                           await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{option}', message_value[0]).replace('{value}', message_value[2].id).replace('{username}', show_name));
+                                            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{option}', message_value[0]).replace('{value}', message_value[2].id).replace('{username}', show_name));
 
                                         }
 
@@ -529,7 +534,8 @@ module.exports = {
                                         paginateCollection.data[item] = {};
 
                                         // Guild
-                                        paginateCollection.data[item].guild = await msg.client.guilds.fetch(tiny_cache.guild);
+                                        paginateCollection.data[item].guild = msg.client.guilds.resolve(tiny_cache.guild);
+                                        if (!paginateCollection.data[item].guild) { paginateCollection.data[item].guild = await msg.client.guilds.fetch(tiny_cache.guild); };
 
                                         // Role
                                         try {

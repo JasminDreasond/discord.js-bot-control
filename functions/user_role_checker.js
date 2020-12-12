@@ -13,8 +13,11 @@ module.exports = async function (userID, guilds, adminRoles, anti_user_repeat, c
             typeof adminRoles[item].guild === "string"
         ) {
 
-            // Get Guild
-            const the_guild = await guilds.cache.find(guild => guild.id === adminRoles[item].guild);
+            // Guild
+            let the_guild = guilds.resolve(adminRoles[item].guild);
+            if (!the_guild) { the_guild = await guilds.fetch(adminRoles[item].guild); };
+
+            // Exist Guild
             if (the_guild) {
 
                 // Check User ID Value
