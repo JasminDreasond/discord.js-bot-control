@@ -128,13 +128,15 @@ module.exports = async (msg, data, safeDS, ds) => {
 
                         // Check Block Prefixes
                         let prefix_allowed = true;
-                        for (const item in data.block_prefix) {
-                            if (prefix_allowed) {
-                                if (command_message.startsWith(data.block_prefix[item]) && command_message.length > data.block_prefix[item].length) {
-                                    prefix_allowed = false;
+                        if (Array.isArray(data.block_prefix)) {
+                            for (const item in data.block_prefix) {
+                                if (prefix_allowed) {
+                                    if (command_message.startsWith(data.block_prefix[item]) && command_message.length > data.block_prefix[item].length) {
+                                        prefix_allowed = false;
+                                    }
+                                } else {
+                                    break;
                                 }
-                            } else {
-                                break;
                             }
                         }
 
