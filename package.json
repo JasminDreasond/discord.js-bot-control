@@ -1,6 +1,6 @@
 {
   "name": "discord.js-bot-control",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Fun tool to send messages as a bot user.",
   "main": "index.js",
   "scripts": {},
