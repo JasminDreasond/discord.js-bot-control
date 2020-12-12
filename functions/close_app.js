@@ -45,65 +45,73 @@ module.exports = async function (signal, err, safeDS) {
                 }
 
                 // Send Warn to Admin
-                for (const item in safeDS.config.discord.bots[i].admin) {
-                    if (typeof safeDS.config.discord.bots[i].admin[item] === "string" && anti_user_repeat.indexOf(safeDS.config.discord.bots[i].admin[item]) < 0) {
-                        const admin_channel = await safeDS.bot[i].users.fetch(safeDS.config.discord.bots[i].admin[item]);
-                        if (admin_channel) {
+                if (Array.isArray(safeDS.config.discord.bots[i].admin)) {
+                    for (const item in safeDS.config.discord.bots[i].admin) {
+                        if (typeof safeDS.config.discord.bots[i].admin[item] === "string" && anti_user_repeat.indexOf(safeDS.config.discord.bots[i].admin[item]) < 0) {
+                            const admin_channel = await safeDS.bot[i].users.fetch(safeDS.config.discord.bots[i].admin[item]);
+                            if (admin_channel) {
 
-                            // Emit Event
-                            await safeDS.events.emit('closeBotAdmin', admin_channel, i);
+                                // Emit Event
+                                await safeDS.events.emit('closeBotAdmin', admin_channel, i);
 
-                            // Send Message
-                            anti_user_repeat.push(safeDS.config.discord.bots[i].admin[item]);
-                            if (use_welcome) { await admin_channel.send(warn_message); }
+                                // Send Message
+                                anti_user_repeat.push(safeDS.config.discord.bots[i].admin[item]);
+                                if (use_welcome) { await admin_channel.send(warn_message); }
 
+                            }
                         }
                     }
                 }
 
-                for (const item in safeDS.config.discord.bots[i].superAdmin) {
-                    if (typeof safeDS.config.discord.bots[i].superAdmin[item] === "string" && anti_user_repeat.indexOf(safeDS.config.discord.bots[i].superAdmin[item]) < 0) {
-                        const admin_channel = await safeDS.bot[i].users.fetch(safeDS.config.discord.bots[i].superAdmin[item]);
-                        if (admin_channel) {
+                if (Array.isArray(safeDS.config.discord.bots[i].superAdmin)) {
+                    for (const item in safeDS.config.discord.bots[i].superAdmin) {
+                        if (typeof safeDS.config.discord.bots[i].superAdmin[item] === "string" && anti_user_repeat.indexOf(safeDS.config.discord.bots[i].superAdmin[item]) < 0) {
+                            const admin_channel = await safeDS.bot[i].users.fetch(safeDS.config.discord.bots[i].superAdmin[item]);
+                            if (admin_channel) {
 
-                            // Emit Event
-                            await safeDS.events.emit('closeBotAdmin', admin_channel, i);
+                                // Emit Event
+                                await safeDS.events.emit('closeBotAdmin', admin_channel, i);
 
-                            // Send Message
-                            anti_user_repeat.push(safeDS.config.discord.bots[i].superAdmin[item]);
-                            if (use_welcome) { await admin_channel.send(warn_message); }
+                                // Send Message
+                                anti_user_repeat.push(safeDS.config.discord.bots[i].superAdmin[item]);
+                                if (use_welcome) { await admin_channel.send(warn_message); }
 
+                            }
                         }
                     }
                 }
 
-                for (const item in safeDS.config.superAdmin) {
-                    if (typeof safeDS.config.superAdmin[item] === "string" && anti_user_repeat.indexOf(safeDS.config.superAdmin[item]) < 0) {
-                        const admin_channel = await safeDS.bot[i].users.fetch(safeDS.config.superAdmin[item]);
-                        if (admin_channel) {
+                if (Array.isArray(safeDS.config.superAdmin)) {
+                    for (const item in safeDS.config.superAdmin) {
+                        if (typeof safeDS.config.superAdmin[item] === "string" && anti_user_repeat.indexOf(safeDS.config.superAdmin[item]) < 0) {
+                            const admin_channel = await safeDS.bot[i].users.fetch(safeDS.config.superAdmin[item]);
+                            if (admin_channel) {
 
-                            // Emit Event
-                            await safeDS.events.emit('closeBotAdmin', admin_channel, i);
+                                // Emit Event
+                                await safeDS.events.emit('closeBotAdmin', admin_channel, i);
 
-                            // Send Message
-                            anti_user_repeat.push(safeDS.config.superAdmin[item]);
-                            if (use_welcome) { await admin_channel.send(warn_message); }
+                                // Send Message
+                                anti_user_repeat.push(safeDS.config.superAdmin[item]);
+                                if (use_welcome) { await admin_channel.send(warn_message); }
 
+                            }
                         }
                     }
                 }
 
-                await safeDS.functions.userRoleChecker(null, safeDS.bot[i].guilds, safeDS.config.discord.bots[i].adminRoles, anti_user_repeat, async function (user) {
+                if (Array.isArray(safeDS.config.discord.bots[i].adminRoles)) {
+                    await safeDS.functions.userRoleChecker(null, safeDS.bot[i].guilds, safeDS.config.discord.bots[i].adminRoles, anti_user_repeat, async function (user) {
 
-                    // Emit Event
-                    await safeDS.events.emit('closeBotAdmin', user, i);
+                        // Emit Event
+                        await safeDS.events.emit('closeBotAdmin', user, i);
 
-                    // Send Message
-                    anti_user_repeat.push(user.id);
-                    if (use_welcome) { await user.send(warn_message); }
-                    return;
+                        // Send Message
+                        anti_user_repeat.push(user.id);
+                        if (use_welcome) { await user.send(warn_message); }
+                        return;
 
-                });
+                    });
+                }
 
                 // Set Status
                 if (safeDS.config.discord.bots[i].shutdownStatus) {

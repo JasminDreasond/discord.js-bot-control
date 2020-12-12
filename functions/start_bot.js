@@ -178,83 +178,91 @@ module.exports = async function (data, token, anti_user_repeat, safeDS) {
 
 
             // Send to Admin
-            for (const item in safeDS.config.discord.bots[data.index].admin) {
+            if (Array.isArray(safeDS.config.discord.bots[data.index].admin)) {
+                for (const item in safeDS.config.discord.bots[data.index].admin) {
 
-                // Prepare Database
-                if (typeof start_user_data_base === "function") { await start_user_data_base(safeDS.config.discord.bots[data.index].admin[item]); }
+                    // Prepare Database
+                    if (typeof start_user_data_base === "function") { await start_user_data_base(safeDS.config.discord.bots[data.index].admin[item]); }
 
-                // Send Welcome
-                if (typeof safeDS.config.discord.bots[data.index].admin[item] === "string" && anti_user_repeat.indexOf(safeDS.config.discord.bots[data.index].admin[item]) < 0) {
-                    const admin_channel = await safeDS.bot[data.index].users.fetch(safeDS.config.discord.bots[data.index].admin[item]);
-                    if (admin_channel) {
+                    // Send Welcome
+                    if (typeof safeDS.config.discord.bots[data.index].admin[item] === "string" && anti_user_repeat.indexOf(safeDS.config.discord.bots[data.index].admin[item]) < 0) {
+                        const admin_channel = await safeDS.bot[data.index].users.fetch(safeDS.config.discord.bots[data.index].admin[item]);
+                        if (admin_channel) {
 
-                        // Emit Event
-                        await safeDS.events.emit('readyAdminBot', { index: data.index }, admin_channel);
+                            // Emit Event
+                            await safeDS.events.emit('readyAdminBot', { index: data.index }, admin_channel);
 
-                        // Send Message
-                        anti_user_repeat.push(safeDS.config.discord.bots[data.index].admin[item]);
-                        if (use_welcome) { admin_channel.send(warn_message); }
+                            // Send Message
+                            anti_user_repeat.push(safeDS.config.discord.bots[data.index].admin[item]);
+                            if (use_welcome) { admin_channel.send(warn_message); }
 
+                        }
                     }
-                }
 
+                }
             }
 
-            for (const item in safeDS.config.discord.bots[data.index].superAdmin) {
+            if (Array.isArray(safeDS.config.discord.bots[data.index].superAdmin)) {
+                for (const item in safeDS.config.discord.bots[data.index].superAdmin) {
 
-                // Prepare Database
-                if (typeof start_user_data_base === "function") { await start_user_data_base(safeDS.config.discord.bots[data.index].superAdmin[item]); }
+                    // Prepare Database
+                    if (typeof start_user_data_base === "function") { await start_user_data_base(safeDS.config.discord.bots[data.index].superAdmin[item]); }
 
-                // Send Welcome
-                if (typeof safeDS.config.discord.bots[data.index].superAdmin[item] === "string" && anti_user_repeat.indexOf(safeDS.config.discord.bots[data.index].superAdmin[item]) < 0) {
-                    const admin_channel = await safeDS.bot[data.index].users.fetch(safeDS.config.discord.bots[data.index].superAdmin[item]);
-                    if (admin_channel) {
+                    // Send Welcome
+                    if (typeof safeDS.config.discord.bots[data.index].superAdmin[item] === "string" && anti_user_repeat.indexOf(safeDS.config.discord.bots[data.index].superAdmin[item]) < 0) {
+                        const admin_channel = await safeDS.bot[data.index].users.fetch(safeDS.config.discord.bots[data.index].superAdmin[item]);
+                        if (admin_channel) {
 
-                        // Emit Event
-                        await safeDS.events.emit('readyAdminBot', { index: data.index }, admin_channel);
+                            // Emit Event
+                            await safeDS.events.emit('readyAdminBot', { index: data.index }, admin_channel);
 
-                        // Send Message
-                        anti_user_repeat.push(safeDS.config.discord.bots[data.index].superAdmin[item]);
-                        if (use_welcome) { admin_channel.send(warn_message); }
+                            // Send Message
+                            anti_user_repeat.push(safeDS.config.discord.bots[data.index].superAdmin[item]);
+                            if (use_welcome) { admin_channel.send(warn_message); }
 
+                        }
                     }
-                }
 
+                }
             }
 
-            for (const item in safeDS.config.superAdmin) {
+            if (Array.isArray(safeDS.config.superAdmin)) {
+                for (const item in safeDS.config.superAdmin) {
 
-                // Prepare Database
-                if (typeof start_user_data_base === "function") { await start_user_data_base(safeDS.config.superAdmin[item]); }
+                    // Prepare Database
+                    if (typeof start_user_data_base === "function") { await start_user_data_base(safeDS.config.superAdmin[item]); }
 
-                // Send Welcome
-                if (typeof safeDS.config.superAdmin[item] === "string" && anti_user_repeat.indexOf(safeDS.config.superAdmin[item]) < 0) {
-                    const admin_channel = await safeDS.bot[data.index].users.fetch(safeDS.config.superAdmin[item]);
-                    if (admin_channel) {
+                    // Send Welcome
+                    if (typeof safeDS.config.superAdmin[item] === "string" && anti_user_repeat.indexOf(safeDS.config.superAdmin[item]) < 0) {
+                        const admin_channel = await safeDS.bot[data.index].users.fetch(safeDS.config.superAdmin[item]);
+                        if (admin_channel) {
 
-                        // Emit Event
-                        await safeDS.events.emit('readyAdminBot', { index: data.index }, admin_channel);
+                            // Emit Event
+                            await safeDS.events.emit('readyAdminBot', { index: data.index }, admin_channel);
 
-                        // Send Message
-                        anti_user_repeat.push(safeDS.config.superAdmin[item]);
-                        if (use_welcome) { admin_channel.send(warn_message); }
+                            // Send Message
+                            anti_user_repeat.push(safeDS.config.superAdmin[item]);
+                            if (use_welcome) { admin_channel.send(warn_message); }
 
+                        }
                     }
-                }
 
+                }
             }
 
-            await safeDS.functions.userRoleChecker(start_user_data_base, safeDS.bot[data.index].guilds, safeDS.config.discord.bots[data.index].adminRoles, anti_user_repeat, async function (user) {
+            if (Array.isArray(safeDS.config.discord.bots[data.index].adminRoles)) {
+                await safeDS.functions.userRoleChecker(start_user_data_base, safeDS.bot[data.index].guilds, safeDS.config.discord.bots[data.index].adminRoles, anti_user_repeat, async function (user) {
 
-                // Emit Event
-                await safeDS.events.emit('readyAdminBot', { index: data.index }, user);
+                    // Emit Event
+                    await safeDS.events.emit('readyAdminBot', { index: data.index }, user);
 
-                // Send Message
-                anti_user_repeat.push(user.id);
-                if (use_welcome) { user.send(warn_message); }
-                return;
+                    // Send Message
+                    anti_user_repeat.push(user.id);
+                    if (use_welcome) { user.send(warn_message); }
+                    return;
 
-            });
+                });
+            }
 
             // Emit Event
             await safeDS.events.emit('readyBot', { index: data.index }, safeDS.bot[data.index]);

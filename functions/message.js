@@ -72,27 +72,35 @@ module.exports = async (msg, data, safeDS, ds) => {
                     const anti_user_repeat = [];
 
                     // Send to Admin
-                    for (const item in data.admin) {
-                        let confirm_message_sent_prepare = await safeDS.functions.dmReceiver(msg, data.admin[item], message, anti_user_repeat, data, safeDS);
-                        if (confirm_message_sent_prepare) { confirm_message_sent = true; }
+                    if (Array.isArray(data.admin)) {
+                        for (const item in data.admin) {
+                            let confirm_message_sent_prepare = await safeDS.functions.dmReceiver(msg, data.admin[item], message, anti_user_repeat, data, safeDS);
+                            if (confirm_message_sent_prepare) { confirm_message_sent = true; }
+                        }
                     }
 
-                    for (const item in data.superAdmin) {
-                        let confirm_message_sent_prepare = await safeDS.functions.dmReceiver(msg, data.superAdmin[item], message, anti_user_repeat, data, safeDS);
-                        if (confirm_message_sent_prepare) { confirm_message_sent = true; }
+                    if (Array.isArray(data.superAdmin)) {
+                        for (const item in data.superAdmin) {
+                            let confirm_message_sent_prepare = await safeDS.functions.dmReceiver(msg, data.superAdmin[item], message, anti_user_repeat, data, safeDS);
+                            if (confirm_message_sent_prepare) { confirm_message_sent = true; }
+                        }
                     }
 
-                    for (const item in safeDS.config.superAdmin) {
-                        let confirm_message_sent_prepare = await safeDS.functions.dmReceiver(msg, safeDS.config.superAdmin[item], message, anti_user_repeat, data, safeDS);
-                        if (confirm_message_sent_prepare) { confirm_message_sent = true; }
+                    if (Array.isArray(safeDS.config.superAdmin)) {
+                        for (const item in safeDS.config.superAdmin) {
+                            let confirm_message_sent_prepare = await safeDS.functions.dmReceiver(msg, safeDS.config.superAdmin[item], message, anti_user_repeat, data, safeDS);
+                            if (confirm_message_sent_prepare) { confirm_message_sent = true; }
+                        }
                     }
 
-                    let confirm_message_sent_prepare = await safeDS.functions.userRoleChecker(null, safeDS.bot[data.index].guilds, safeDS.config.discord.bots[data.index].adminRoles, null, async function (user) {
-                        let confirm_message_sent_prepare = await safeDS.functions.dmReceiver(msg, user.id, message, anti_user_repeat, data, safeDS);
+                    if (Array.isArray(safeDS.config.discord.bots[data.index].adminRoles)) {
+                        let confirm_message_sent_prepare = await safeDS.functions.userRoleChecker(null, safeDS.bot[data.index].guilds, safeDS.config.discord.bots[data.index].adminRoles, null, async function (user) {
+                            let confirm_message_sent_prepare = await safeDS.functions.dmReceiver(msg, user.id, message, anti_user_repeat, data, safeDS);
+                            if (confirm_message_sent_prepare) { confirm_message_sent = true; }
+                            return confirm_message_sent_prepare;
+                        });
                         if (confirm_message_sent_prepare) { confirm_message_sent = true; }
-                        return confirm_message_sent_prepare;
-                    });
-                    if (confirm_message_sent_prepare) { confirm_message_sent = true; }
+                    }
 
                     if (!confirm_message_sent && (safeDS.config.discord.bots[data.index].warnNoAdminsDM || message_checked.perms.admin)) {
                         msg.channel.send(safeDS.console.discord.warn(`${safeDS.lang.get('inactive_bot_dm', data.lang)}`));
