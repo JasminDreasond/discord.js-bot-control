@@ -177,6 +177,12 @@ The storage folder will store a cache of things that happen in your bot.
 The log folder will store reports of things that happen in your bot.
 The sound folder will store folders where you can place random sounds to play with your friends on the server.
 
+## Languages
+
+<img src ="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/um.svg" height="20"> en - English (Made by me) (Default Language)
+
+<img src ="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/flags/4x3/br.svg" height="20"> pt-BR - Português Brasil (Made by me)
+
 <hr/>
 
 ## Reactions
