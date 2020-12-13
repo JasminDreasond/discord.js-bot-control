@@ -18,7 +18,7 @@ const messageCache = {
     start: function (safeDS) {
 
         // Cache Add
-        messageCache.add = async function (msg_sent, new_msg, type, data) {
+        messageCache.add = async function (msg_sent, new_msg, type, data, isAdmin) {
 
             // Create Channel ID
             if (!messageCache.cache.original[msg_sent.channel.id]) {
@@ -66,7 +66,9 @@ const messageCache = {
                 ) {
 
                     // React
-                    msg_sent.react(safeDS.reactions.get('timeout', data.index, true));
+                    if (isAdmin) {
+                        msg_sent.react(safeDS.reactions.get('timeout', data.index, true));
+                    }
 
                     // Delete Cache
                     if (messageCache.cache.original[msg_sent.channel.id][msg_sent.id]) { delete messageCache.cache.original[msg_sent.channel.id][msg_sent.id]; }
