@@ -21,7 +21,7 @@ module.exports = async function (msg, admin, message, anti_user_repeat, data, sa
 
                         // Emit Event
                         await safeDS.messageCache.add(msg, new_msg, 'user', data, false);
-                        await safeDS.events.emit('dmReceiver', data.index, msg.author, new_msg, false);
+                        await safeDS.events.emit('dmReceiver', data.index, msg.author, new_msg);
                         return;
 
                     }).catch((err) => {

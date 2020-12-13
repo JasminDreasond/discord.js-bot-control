@@ -21,7 +21,7 @@ module.exports = async function (msg, data, safeDS, command_message, message) {
 
              // Emit Event
              await safeDS.messageCache.add(msg, new_msg, message_type, data, true);
-             await safeDS.events.emit('adminMessageSent', data.index, msg.author, new_msg, true);
+             await safeDS.events.emit('adminMessageSent', data.index, msg.author, new_msg);
              return;       
             
         }).catch((err) => {
