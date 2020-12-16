@@ -864,6 +864,9 @@ Discord.JS Message Object.
 ## command_blockprefixAdded
 ## command_blockprefixRemoved
 ## command_blockprefixReseted
+## command_blockuserAdded
+## command_blockprefixRemoved
+## command_blockprefixReseted
 When a user uses the command to add a new prefix blocked.
 Args: data, msg
 
@@ -894,6 +897,7 @@ Discord.JS Message Object.
 ## command_changePrefix
 ## command_shutdown
 ## command_status
+## command_presence
 ## command_voiceJoined
 ## command_warnDMChanged
 When a user uses the command to change the a bot value.

@@ -138,6 +138,8 @@ module.exports = {
     help_sound: `Use este comando para reproduzir arquivos de som em um canal de áudio.`,
     help_reaction: `Use este comando para que você possa reagir a uma mensagem que está em uma guilda. Digite o comando para obter mais informações.`,
     help_reactionmanager: `Gerenciar as reações utilizadas pelo sistema de aplicação.`,
+    help_block_user: ``,
+    help_presence: ``,
 
     // Values
     channel_id: `ID do Canal`,
@@ -321,5 +323,38 @@ module.exports = {
     cm_sound_nothing_now: `O reprodutor de som não está disponível no momento.`,
     cm_sound_voice_not_found: `O canal de áudio não foi encontrado. Digite o comando: **{prefix}voice**`,
     cm_sound_disabled: `O sistema de áudio está desativado no momento.`,
+
+    // Block User Command
+    cm_blockuser_added: `{prefix}`,
+    cm_blockuser_added_error_duplicate: `{prefix}`,
+    cm_blockuser_added_error: ``,
+    
+    cm_blockuser_removed: `{prefix}`,
+    cm_blockuser_removed_error_duplicate: `{prefix}`,
+    cm_blockuser_removed_error: ``,
+
+    cm_blockuser_reseted: ``,
+    cm_blockuser_reseted_error_duplicate: ``,
+    cm_blockuser_reseted_error: ``,
+
+    cm_blockuser_no_value: ``,
+    cm_blockuser_no_value_info: ``,
+
+    cm_blockuser_is_empty: ``,
+    cm_blockuser_is_empty_info: ``,
+
+    cm_blockuser_title: ``,
+    cm_blockuser_description: ``,
+    cm_blockuser_list: ``,
+
+    cm_blockuser_command_not_found: ``,
+
+    cm_blockuser_help_title: ``,
+
+    cm_blockuser_not_allowed: ``,
+
+    // Presence Commands
+    cm_presence_changed: ``,
+    cm_presence_help: ``,
 
 };

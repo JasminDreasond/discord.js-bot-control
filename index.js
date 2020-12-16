@@ -30,6 +30,7 @@ safeDS.defaultCommands = [
     // Commands
     require('./commands/sound'),
     require('./commands/dm'),
+    require('./commands/presence'),
 
     require('./commands/channel'),
     require('./commands/user'),
@@ -45,6 +46,7 @@ safeDS.defaultCommands = [
     require('./commands/about'),
 
     // Users Manager
+    require('./commands/block_user'),
     require('./commands/admin_manager'),
     require('./commands/reaction_manager'),
     require('./commands/embed_color'),
