@@ -49,7 +49,15 @@ const default_values = {
             users: {},
 
             // Anti Flood
-            msg_checker: function () { return { confirmed: true }; },
+            msg_checker: async function (msg, cfg, perm_check) { 
+        
+                // Permission
+                const perms = await perm_check();
+        
+                // Return
+                return { confirmed: true, perms: perms }; 
+        
+            },
 
             // Admins
             admin: [],
@@ -77,7 +85,15 @@ const default_values = {
     superAdmin: [],
 
     // Anti Flood
-    msg_checker: function () { return { confirmed: true }; },
+    msg_checker: async function (msg, cfg, perm_check) { 
+        
+        // Permission
+        const perms = await perm_check();
+
+        // Return
+        return { confirmed: true, perms: perms }; 
+
+    },
 
     // Custom Commands
     commands: [],
