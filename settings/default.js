@@ -71,6 +71,9 @@ const default_values = {
             // Custom Commands
             commands: [],
 
+            // Blocked Users
+            block_user: []
+
         }]
     },
 

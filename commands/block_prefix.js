@@ -93,11 +93,14 @@ module.exports = {
                     // Detect Text
                     if (typeof message_value[1] === "string" && message_value[1] !== "") {
 
+                        // Get Index
+                        const tiny_index = result.indexOf(message_value[1]);
+
                         // Check
-                        if (result.indexOf(message_value[1]) > -1) {
+                        if (tiny_index > -1) {
 
                             // Remove Value
-                            result.splice(result.indexOf(message_value[1]), 1);
+                            result.splice(tiny_index, 1);
 
                             // Change Value
                             await safeDS.configManager.bot.set(data.index, 'block_prefix', result, safeDS);
