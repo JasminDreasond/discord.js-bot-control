@@ -175,7 +175,7 @@ When you run the application, all users who are bot administrators will receive 
 
 The storage folder will store a cache of things that happen in your bot.
 The log folder will store reports of things that happen in your bot.
-The sound folder will store folders where you can place random sounds to play with your friends on the server.
+The sound folder will store folders where you can place random sounds to play with your friends in the server.
 
 ## Languages
 
@@ -527,7 +527,7 @@ Color code that will be used on your bot's embed. The application will try to co
 
 <hr/>
 
-## welcome (Boolean)
+### welcome (Boolean)
 Whether a welcome message should be sent to all bot admins when the bot starts.
 
 ### logoff_warn (Boolean)
