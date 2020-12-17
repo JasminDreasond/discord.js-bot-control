@@ -1,4 +1,5 @@
 fazer definidor de presence do discord bot control
+fazer bloqueador de usuários
 Sistema para os outros admin ver o que os outros admin manda
 log de mensagens dos admins
 log o que recebem
