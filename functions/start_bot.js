@@ -348,6 +348,7 @@ module.exports = async function (data, token, anti_user_repeat, safeDS) {
     // Emit Event
     await safeDS.events.emit('preparingBot', { index: data.index }, safeDS.bot[data.index]);
     await safeDS.events.emit('preparingBot[' + data.index + ']', { index: data.index }, safeDS.bot[data.index]);
+    
     // Login In Bot
     if (typeof token === "string") {
         await safeDS.bot[data.index].login(token);
