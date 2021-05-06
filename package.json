@@ -23,7 +23,7 @@
     "death": "^1.1.0",
     "discord.js": "^12.3.1",
     "get-audio-duration": "^2.0.3",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "moment-timezone": "^0.5.32",
     "paginate-array": "^2.1.0",
     "simple-node-logger": "^18.12.24",
