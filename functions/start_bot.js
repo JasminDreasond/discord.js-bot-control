@@ -7,7 +7,7 @@ module.exports = async function(data, token, anti_user_repeat, safeDS) {
         const Discord = require('discord.js');
         const _ = require('lodash');
 
-        const clientIntents = _.defaultsDeep({}, data.intents, [
+        const clientIntents = _.defaultsDeep([], data.intents, [
             Discord.Intents.FLAGS.GUILDS,
             Discord.Intents.FLAGS.GUILD_INTEGRATIONS,
             Discord.Intents.FLAGS.GUILD_MESSAGES,
@@ -25,7 +25,7 @@ module.exports = async function(data, token, anti_user_repeat, safeDS) {
         }
 
         // Prepare Bot
-        safeDS.bot[data.index] = new Discord.Client({ autoReconnect: true, intents: clientIntents });
+        safeDS.bot[data.index] = new Discord.Client({ partials: ["CHANNEL"], autoReconnect: true, intents: clientIntents });
 
     }
 
@@ -334,6 +334,7 @@ module.exports = async function(data, token, anti_user_repeat, safeDS) {
 
     // Detect Messages
     safeDS.bot[data.index].on('messageCreate', (msg) => {
+        console.log(msg);
         return safeDS.functions.message(msg, data);
     });
 
