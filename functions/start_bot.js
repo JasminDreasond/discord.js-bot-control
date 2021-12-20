@@ -334,7 +334,6 @@ module.exports = async function(data, token, anti_user_repeat, safeDS) {
 
     // Detect Messages
     safeDS.bot[data.index].on('messageCreate', (msg) => {
-        console.log(msg);
         return safeDS.functions.message(msg, data);
     });
 
