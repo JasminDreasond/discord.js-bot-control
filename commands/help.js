@@ -1,4 +1,4 @@
-module.exports = async function (msg, data, safeDS, command_message) {
+module.exports = async function(msg, data, safeDS, command_message) {
 
     // Help
     if (command_message.startsWith(data.prefix + 'help ') || command_message === data.prefix + 'help') {
@@ -81,7 +81,8 @@ module.exports = async function (msg, data, safeDS, command_message) {
 
         // Message Data
         const message_data = {
-            embed: {
+            content: safeDS.console.discord.log(`${safeDS.lang.get('help_message_info', data.lang)}`),
+            embeds: [{
                 title: safeDS.lang.get('help_title', data.lang),
                 description: safeDS.lang.get('help_description', data.lang),
                 author: {
@@ -92,14 +93,14 @@ module.exports = async function (msg, data, safeDS, command_message) {
                     text: safeDS.functions.getPaginationText(paginateCollection, data.lang)
                 },
                 fields: tiny_field
-            }
+            }]
         };
 
         // Set Embed Color
-        message_data.embed.color = require('../functions/embed_color')(data.color);
+        message_data.embeds[0].color = require('../functions/embed_color')(data.color);
 
         // Send Message
-        msg.channel.send(safeDS.console.discord.log(`${safeDS.lang.get('help_message_info', data.lang)}`), message_data);
+        msg.channel.send(message_data);
 
         // Complete
         return true;
