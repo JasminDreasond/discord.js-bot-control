@@ -45,6 +45,18 @@ dbc.start({
         timeout: '⏰'
     },
 
+    // Intents
+    intents: [
+        "GUILDS",
+        "GUILD_INTEGRATIONS",
+        "GUILD_MESSAGES",
+        "GUILD_MESSAGE_REACTIONS",
+        "GUILD_MESSAGE_TYPING",
+        "DIRECT_MESSAGES",
+        "DIRECT_MESSAGE_REACTIONS",
+        "DIRECT_MESSAGE_TYPING"
+    ],
+
     // Discord Settings
     discord: {
         bots: [

@@ -49,14 +49,14 @@ const default_values = {
             users: {},
 
             // Anti Flood
-            msg_checker: async function (msg, cfg, perm_check) { 
-        
+            msg_checker: async function(msg, cfg, perm_check) {
+
                 // Permission
                 const perms = await perm_check();
-        
+
                 // Return
-                return { confirmed: true, perms: perms }; 
-        
+                return { confirmed: true, perms: perms };
+
             },
 
             // Admins
@@ -88,13 +88,13 @@ const default_values = {
     superAdmin: [],
 
     // Anti Flood
-    msg_checker: async function (msg, cfg, perm_check) { 
-        
+    msg_checker: async function(msg, cfg, perm_check) {
+
         // Permission
         const perms = await perm_check();
 
         // Return
-        return { confirmed: true, perms: perms }; 
+        return { confirmed: true, perms: perms };
 
     },
 
@@ -127,7 +127,7 @@ const default_values = {
 
 };
 
-module.exports = function (tinyCfg) {
+module.exports = function(tinyCfg) {
 
     // Prepare Modules
     const clone = require('clone');

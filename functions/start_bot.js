@@ -1,13 +1,31 @@
-module.exports = async function (data, token, anti_user_repeat, safeDS) {
+module.exports = async function(data, token, anti_user_repeat, safeDS) {
 
     // Is Token String
     if (typeof token === "string") {
 
         // Discord Module
         const Discord = require('discord.js');
+        const _ = require('lodash');
+
+        const clientIntents = _.defaultsDeep({}, data.intents, [
+            Discord.Intents.FLAGS.GUILDS,
+            Discord.Intents.FLAGS.GUILD_INTEGRATIONS,
+            Discord.Intents.FLAGS.GUILD_MESSAGES,
+            Discord.Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+            Discord.Intents.FLAGS.GUILD_MESSAGE_TYPING,
+            Discord.Intents.FLAGS.DIRECT_MESSAGES,
+            Discord.Intents.FLAGS.DIRECT_MESSAGE_REACTIONS,
+            Discord.Intents.FLAGS.DIRECT_MESSAGE_TYPING
+        ]);
+
+        for (const item in clientIntents) {
+            if (typeof clientIntents[item] === "string" && typeof Discord.Intents.FLAGS[clientIntents[item]] !== "undefined") {
+                clientIntents[item] = Discord.Intents.FLAGS[clientIntents[item]];
+            }
+        }
 
         // Prepare Bot
-        safeDS.bot[data.index] = new Discord.Client({ autoReconnect: true });
+        safeDS.bot[data.index] = new Discord.Client({ autoReconnect: true, intents: clientIntents });
 
     }
 
@@ -20,7 +38,7 @@ module.exports = async function (data, token, anti_user_repeat, safeDS) {
     }
 
     // Ready
-    safeDS.bot[data.index].on('ready', async () => {
+    safeDS.bot[data.index].on('ready', async() => {
 
         // Start Console Files
         await safeDS.console.startBotFile(safeDS.bot[data.index].user.id);
@@ -61,7 +79,7 @@ module.exports = async function (data, token, anti_user_repeat, safeDS) {
                     safeDS.storage.bots[data.index] = await JSONStore({ path: path.join(safeDS.config.storage_folder, '/bot_' + safeDS.bot[data.index].user.id + '.json') });
                     safeDS.storage.users[data.index] = {};
 
-                    start_user_data_base = async function (userID) {
+                    start_user_data_base = async function(userID) {
 
                         // User Admin Data
                         if (!safeDS.storage.users[data.index][userID]) {
@@ -251,7 +269,7 @@ module.exports = async function (data, token, anti_user_repeat, safeDS) {
             }
 
             if (Array.isArray(safeDS.config.discord.bots[data.index].adminRoles)) {
-                await safeDS.functions.userRoleChecker(start_user_data_base, safeDS.bot[data.index].guilds, safeDS.config.discord.bots[data.index].adminRoles, anti_user_repeat, async function (user) {
+                await safeDS.functions.userRoleChecker(start_user_data_base, safeDS.bot[data.index].guilds, safeDS.config.discord.bots[data.index].adminRoles, anti_user_repeat, async function(user) {
 
                     // Emit Event
                     await safeDS.events.emit('readyAdminBot', { index: data.index }, user);
@@ -348,7 +366,7 @@ module.exports = async function (data, token, anti_user_repeat, safeDS) {
     // Emit Event
     await safeDS.events.emit('preparingBot', { index: data.index }, safeDS.bot[data.index]);
     await safeDS.events.emit('preparingBot[' + data.index + ']', { index: data.index }, safeDS.bot[data.index]);
-    
+
     // Login In Bot
     if (typeof token === "string") {
         await safeDS.bot[data.index].login(token);
