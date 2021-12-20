@@ -4,7 +4,6 @@ module.exports = async(msg, data, safeDS, ds) => {
     if (!msg.author.bot && msg.author.id !== msg.client.user.id) {
 
         // Detect DM
-        console.log(msg.channel.type);
         if (msg.channel.type === "DM") {
 
             // Perm Checker
