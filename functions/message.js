@@ -1,13 +1,14 @@
-module.exports = async (msg, data, safeDS, ds) => {
+module.exports = async(msg, data, safeDS, ds) => {
 
     // Detect Bot
     if (!msg.author.bot && msg.author.id !== msg.client.user.id) {
 
         // Detect DM
-        if (msg.channel.type === "dm") {
+        console.log(msg.channel.type);
+        if (msg.channel.type === "DM") {
 
             // Perm Checker
-            const permission_checker = async function () {
+            const permission_checker = async function() {
                 const pm = require('./permission_checker');
                 let result = await pm(msg.client.guilds, msg.author.id, data.index, safeDS);
                 return result;
@@ -41,7 +42,7 @@ module.exports = async (msg, data, safeDS, ds) => {
 
                 // Insert File
                 if (msg.attachments && msg.attachments.size > 0) {
-                    msg.attachments.forEach(function (value) {
+                    msg.attachments.forEach(function(value) {
                         message += '\n' + value.proxyURL;
                     });
                 }
@@ -63,7 +64,7 @@ module.exports = async (msg, data, safeDS, ds) => {
                 }
 
                 // Create Message Sender
-                const message_sender = async function () {
+                const message_sender = async function() {
 
                     // Message Sent Confirm
                     let confirm_message_sent = false;
@@ -94,7 +95,7 @@ module.exports = async (msg, data, safeDS, ds) => {
                     }
 
                     if (Array.isArray(safeDS.config.discord.bots[data.index].adminRoles)) {
-                        let confirm_message_sent_prepare = await safeDS.functions.userRoleChecker(null, safeDS.bot[data.index].guilds, safeDS.config.discord.bots[data.index].adminRoles, null, async function (user) {
+                        let confirm_message_sent_prepare = await safeDS.functions.userRoleChecker(null, safeDS.bot[data.index].guilds, safeDS.config.discord.bots[data.index].adminRoles, null, async function(user) {
                             let confirm_message_sent_prepare = await safeDS.functions.dmReceiver(msg, user.id, message, anti_user_repeat, data, safeDS);
                             if (confirm_message_sent_prepare) { confirm_message_sent = true; }
                             return confirm_message_sent_prepare;

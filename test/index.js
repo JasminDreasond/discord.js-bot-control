@@ -1,4 +1,4 @@
-const start_app = async function () {
+const start_app = async function() {
 
     // Get Module
     const dbc = require('../index');
@@ -16,8 +16,8 @@ const start_app = async function () {
     if (tinyCfg) {
 
         // Events
-        const create_event = function (name, title) {
-            dbc.on(name, function () {
+        const create_event = function(name, title) {
+            dbc.on(name, function() {
 
                 // See Config List
                 dbc.console.cmd.event(title, arguments);
@@ -38,7 +38,7 @@ const start_app = async function () {
         // Bot Variable
         let bot = null;
 
-        dbc.on('readyBot[0]', function () {
+        dbc.on('readyBot[0]', function() {
 
             // Get Bot
             bot = dbc.getBot(0);
