@@ -1,19 +1,19 @@
 // Create Console
 const tiny_console = {
 
-    start: function (safeDS) {
+    start: function(safeDS) {
 
         // Console Generator
-        tiny_console.generator = function () {
+        tiny_console.generator = function() {
 
             // Generator Part 2
-            const itemsGenerator = function (type) {
+            const itemsGenerator = function(type) {
 
                 // Return Items
                 return {
 
                     // Global
-                    global: function (callback, obj) {
+                    global: function(callback, obj) {
 
                         // Convert String
                         if (typeof obj === "string") {
@@ -33,7 +33,7 @@ const tiny_console = {
                     },
 
                     // Bot
-                    bot: function (id, callback, obj) {
+                    bot: function(id, callback, obj) {
 
                         // Convert String
                         if (typeof obj === "string") {
@@ -64,7 +64,7 @@ const tiny_console = {
                 mod: itemsGenerator('mod'),
 
                 // Create User DS Log
-                sendDSUserLog: async function (msg, where, type, type2, message, extra, isGlobal = false) {
+                sendDSUserLog: async function(msg, type2, where, type, message, extra, isGlobal = false) {
 
                     // Send Bot Console Message
                     if (!isGlobal) {
@@ -117,7 +117,7 @@ const tiny_console = {
         safeDS.messageTag.cmd.eventFile = chalk.bold.blue('[EVENT] ');
 
         // Validator Value
-        tiny_console.defaultConsoleCall = function (c_type, args, where, type, tagType, force_console, noClock = false, can_console = false, custom_file = null, where_custom_file = null, type_custom_type = null) {
+        tiny_console.defaultConsoleCall = function(c_type, args, where, type, tagType, force_console, noClock = false, can_console = false, custom_file = null, where_custom_file = null, type_custom_type = null) {
 
             // Check
             if (typeof safeDS.messageTag[where] !== "undefined" && typeof safeDS.messageTag[where][tagType] === "string") {
@@ -247,7 +247,7 @@ const tiny_console = {
         };
 
         // Create Item Console Base
-        const createConsoleItemBase = function (baseName, item, itemName = null, callback) {
+        const createConsoleItemBase = function(baseName, item, itemName = null, callback) {
 
             // Fix Item Name
             if (typeof itemName !== "string") {
@@ -258,7 +258,7 @@ const tiny_console = {
             if (typeof tiny_console[baseName][item] !== "function" && typeof item === "string") {
 
                 // Start Value
-                tiny_console[baseName][item] = function () {
+                tiny_console[baseName][item] = function() {
 
                     // Force Console
                     const force_console = (Object.prototype.toString.call(arguments[0]).toLocaleLowerCase() === '[object object]' && typeof arguments[0].FORCEDBCCONSOLE === "boolean" && arguments[0].FORCEDBCCONSOLE === true);
@@ -275,7 +275,7 @@ const tiny_console = {
 
         // Create Console
         tiny_console.cmd = {};
-        const console_result = function (original_args, baseName, item, itemName, force_console) {
+        const console_result = function(original_args, baseName, item, itemName, force_console) {
 
             const can_console = (item === "error" || (safeDS.config && safeDS.config.showLogs) || force_console);
 
@@ -296,7 +296,7 @@ const tiny_console = {
 
         // Create Discord
         tiny_console.discord = {};
-        const discord_result = function (original_args, baseName, item, itemName) {
+        const discord_result = function(original_args, baseName, item, itemName) {
 
             // Convert to Array
             try {
@@ -334,7 +334,7 @@ const tiny_console = {
 
         // Create
         const fs = require('fs');
-        const create_log = function (folder, resolver = function () { return; }, fail = function () { return; }) {
+        const create_log = function(folder, resolver = function() { return; }, fail = function() { return; }) {
 
             // Create Main Folder
             try {
@@ -369,7 +369,7 @@ const tiny_console = {
         };
 
         // Start The File
-        tiny_console.startFiles = async function () {
+        tiny_console.startFiles = async function() {
 
             // Exist Folder
             tiny_console.folder = null;
@@ -404,9 +404,9 @@ const tiny_console = {
             if (typeof safeDS.config.log_folder === "string") {
 
                 // Create Main Folder
-                create_log(safeDS.config.log_folder, function (folder) {
+                create_log(safeDS.config.log_folder, function(folder) {
                     tiny_console.folder = safeDS.config.log_folder;
-                }, function (folder) {
+                }, function(folder) {
                     tiny_console.folder = null;
                 });
 
@@ -429,7 +429,7 @@ const tiny_console = {
                 const mod_folder = path.join(tiny_console.folder, './mod_global');
 
                 // Create Folder
-                create_log(main_folder, function () {
+                create_log(main_folder, function() {
 
                     // Prepare Global
                     tiny_console.files.cmd.global = log.createRollingFileLogger({
@@ -441,7 +441,7 @@ const tiny_console = {
                 });
 
                 // Create Folder
-                create_log(mod_folder, function () {
+                create_log(mod_folder, function() {
 
                     // Prepare Global
                     tiny_console.files.mod.global = log.createRollingFileLogger({
@@ -460,7 +460,7 @@ const tiny_console = {
         };
 
         // Start The File
-        tiny_console.startBotFile = async function (id) {
+        tiny_console.startBotFile = async function(id) {
 
             // Exist Folder
             if (tiny_console.files) {
@@ -470,7 +470,7 @@ const tiny_console = {
                 const mod_folder = path.join(tiny_console.folder, './mod_' + id);
 
                 // Create Folder
-                create_log(main_folder, function () {
+                create_log(main_folder, function() {
 
                     // Prepare Global
                     tiny_console.files.cmd[id] = log.createRollingFileLogger({
@@ -482,7 +482,7 @@ const tiny_console = {
                 });
 
                 // Create Folder
-                create_log(mod_folder, function () {
+                create_log(mod_folder, function() {
 
                     // Prepare Global
                     tiny_console.files.mod[id] = log.createRollingFileLogger({
