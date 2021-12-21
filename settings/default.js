@@ -81,9 +81,6 @@ const default_values = {
     welcome: true,
     logoff_warn: true,
 
-    // Allow Shutdown
-    allowShutdown: true,
-
     // Super Admin
     superAdmin: [],
 

@@ -124,9 +124,6 @@ dbc.start({
         ]
     },
 
-    // Allow Shutdown
-    allowShutdown: true,
-
     // Welcome
     welcome: true,
     logoff_warn: false,
@@ -370,7 +367,6 @@ The list of User IDs of the super administrators who have full command to the bo
 
 ### discord.bots  (Array[object])
 Array that will list all the bots that will be activated inside the application.
-allowShutdown - This option will allow the super administrators to use the command to shut down the application.
 
 <hr/>
 
