@@ -64,7 +64,7 @@ const tiny_console = {
                 mod: itemsGenerator('mod'),
 
                 // Create User DS Log
-                sendDSUserLog: async function(msg, type2, where, type, message, extra, isGlobal = false) {
+                sendDSUserLog: async function(msg, where, type, type2, message, extra, isGlobal = false) {
 
                     // Send Bot Console Message
                     if (!isGlobal) {
