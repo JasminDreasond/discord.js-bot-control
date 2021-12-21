@@ -15,8 +15,17 @@ module.exports = async function(msg, data, safeDS, command_message) {
         // Get Items
         let paginateCollection = paginate(safeDS.commands, page, 10);
 
-        // Prepare Field
-        const tiny_field = [];
+        // Message Data
+        const { MessageEmbed } = require('discord.js');
+        const message_data = new MessageEmbed();
+
+        message_data.setTitle(safeDS.lang.get('help_title', data.lang));
+        message_data.setColor(data.color);
+        message_data.setDescription(safeDS.lang.get('help_description', data.lang));
+
+        message_data.setAuthor(safeDS.appName, msg.client.user.avatarURL());
+
+        message_data.setFooter(safeDS.functions.getPaginationText(paginateCollection, data.lang));
 
         // Prepare Field
         if (paginateCollection.data.length > 0) {
@@ -49,7 +58,7 @@ module.exports = async function(msg, data, safeDS, command_message) {
                     }
 
                     // Add to Field
-                    tiny_field.push({
+                    message_data.addField({
                         name: name,
                         value: value
                     });
@@ -59,7 +68,7 @@ module.exports = async function(msg, data, safeDS, command_message) {
                 // Error
                 else {
                     // Add to Field
-                    tiny_field.push({
+                    message_data.addField({
                         name: `${safeDS.lang.get('help_without_prefix', data.lang)}`,
                         value: `${safeDS.lang.get('help_without_prefix_value', data.lang)}`.replace('{index}', item - safeDS.defaultCommands.length)
                     });
@@ -72,35 +81,15 @@ module.exports = async function(msg, data, safeDS, command_message) {
         else {
 
             // Add to Field
-            tiny_field.push({
+            message_data.addField({
                 name: safeDS.lang.get('help_is_empty', data.lang),
                 value: safeDS.lang.get('help_is_empty_info', data.lang)
             });
 
         }
 
-        // Message Data
-        const message_data = {
-            content: safeDS.console.discord.log(`${safeDS.lang.get('help_message_info', data.lang)}`),
-            embeds: [{
-                title: safeDS.lang.get('help_title', data.lang),
-                description: safeDS.lang.get('help_description', data.lang),
-                author: {
-                    name: safeDS.appName,
-                    icon_url: msg.client.user.avatarURL()
-                },
-                footer: {
-                    text: safeDS.functions.getPaginationText(paginateCollection, data.lang)
-                },
-                fields: tiny_field
-            }]
-        };
-
-        // Set Embed Color
-        message_data.embeds[0].color = require('../functions/embed_color')(data.color);
-
         // Send Message
-        msg.channel.send(message_data);
+        msg.channel.send({ embeds: message_data, content: safeDS.console.discord.log(`${safeDS.lang.get('help_message_info', data.lang)}`) });
 
         // Complete
         return true;
