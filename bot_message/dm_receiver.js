@@ -1,4 +1,4 @@
-module.exports = async function (msg, admin, message, anti_user_repeat, data, safeDS) {
+module.exports = async function(msg, admin, message, anti_user_repeat, data, safeDS) {
 
     // Validator Admin
     await safeDS.configManager.user.validator(data.index, admin, safeDS);
@@ -17,7 +17,7 @@ module.exports = async function (msg, admin, message, anti_user_repeat, data, sa
                 if (admin !== msg.author.id) {
 
                     // Send Message
-                    admin_channel.send(safeDS.console.discord.log(`**${msg.author.tag} (${msg.author.id})**:\n\n${message}`)).then(async (new_msg) => {
+                    admin_channel.send(safeDS.console.discord.log(`**${msg.author.tag} (${msg.author.id})**:\n\n${message}`)).then(async(new_msg) => {
 
                         // Emit Event
                         await safeDS.messageCache.add(msg, new_msg, 'user', data, false);
