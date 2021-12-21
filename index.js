@@ -30,7 +30,7 @@ safeDS.defaultCommands = [
     // Commands
     require('./commands/sound'),
     require('./commands/dm'),
-    require('./commands/presence'),
+    //require('./commands/presence'),
 
     require('./commands/channel'),
     require('./commands/user'),
@@ -42,7 +42,7 @@ safeDS.defaultCommands = [
     require('./commands/status'),
     require('./commands/react'),
 
-    require('./commands/shutdown'),
+    //require('./commands/shutdown'),
     require('./commands/about'),
 
     // Users Manager
@@ -83,7 +83,7 @@ safeDS.bot = {};
 safeDS.functions = {
 
     // Get Emoji ID
-    getEmojiID: function (value) {
+    getEmojiID: function(value) {
         const new_value = value.match(/^<(a?):(\w+):(\d+)>/);
         if (new_value) {
             const new_value_index = new_value.length - 1;
@@ -98,20 +98,20 @@ safeDS.functions = {
     },
 
     // Get Pagination
-    getPaginationText: function (paginateCollection, dataLang) {
+    getPaginationText: function(paginateCollection, dataLang) {
         return safeDS.lang.get('pagination_base', dataLang).replace('{currect_page}', paginateCollection.currentPage).replace('{total}', paginateCollection.total).replace('{total_pages}', paginateCollection.totalPages);
     },
 
     // Get Package Author
     getModuleAuthor: function() {
-        
+
         // String
-        if(typeof safeDS.package.author === "string"){
+        if (typeof safeDS.package.author === "string") {
             return safeDS.package.author;
         }
 
         // Object
-        if(typeof safeDS.package.author.name === "string"){
+        if (typeof safeDS.package.author.name === "string") {
             return safeDS.package.author.name;
         }
 
@@ -123,10 +123,10 @@ safeDS.functions = {
     },
 
     // Start Bot
-    start: async function (data, token, anti_user_repeat) { return await require('./functions/start_bot')(data, token, anti_user_repeat, safeDS); },
+    start: async function(data, token, anti_user_repeat) { return await require('./functions/start_bot')(data, token, anti_user_repeat, safeDS); },
 
     // DM Receiver
-    dmReceiver: async (msg, admin, adminCfg, message, anti_user_repeat, data) => {
+    dmReceiver: async(msg, admin, adminCfg, message, anti_user_repeat, data) => {
         return require('./bot_message/dm_receiver')(msg, admin, adminCfg, message, anti_user_repeat, data, safeDS);
     },
 
@@ -134,26 +134,26 @@ safeDS.functions = {
     userRoleChecker: require('./functions/user_role_checker'),
 
     // Message
-    message: async (msg, data) => {
+    message: async(msg, data) => {
         return require('./functions/message')(msg, data, safeDS, ds);
     },
 
     // Update Message
-    updateMessage: async (old_msg, msg, data) => {
+    updateMessage: async(old_msg, msg, data) => {
         return require('./functions/bot_message_manager')('edit', old_msg, msg.author, msg, data, safeDS);
     },
 
     // Reaction
-    messageReaction: async (reaction, user, data, type) => {
+    messageReaction: async(reaction, user, data, type) => {
         return require('./functions/bot_message_manager')('reaction' + type, reaction, user, reaction.message, data, safeDS);
     },
 
-    messageReactionRemoveAll: async (msg, data) => {
+    messageReactionRemoveAll: async(msg, data) => {
         return require('./functions/bot_message_manager')('removeAllReactions', {}, msg.author, msg, data, safeDS);
     },
 
     // Delete Message
-    deleteMessage: async (msg, data) => {
+    deleteMessage: async(msg, data) => {
         return require('./functions/bot_message_manager')('delete', {}, msg.author, msg, data, safeDS);
     }
 
@@ -164,19 +164,19 @@ safeDS.configManager = require('./settings/manager');
 
 // Events
 const EventEmitter = require('events');
-class MyEmitter extends EventEmitter { };
+class MyEmitter extends EventEmitter {};
 safeDS.events = new MyEmitter();
 
 // The Module
 const ds = {
 
     // Get Emoji ID
-    getEmojiID: function (value) {
+    getEmojiID: function(value) {
         return safeDS.functions.getEmojiID(value);
     },
 
     // Get Pagination Text
-    getPaginationText: function (paginateCollection, dataLang) {
+    getPaginationText: function(paginateCollection, dataLang) {
         return safeDS.functions.getPaginationText(paginateCollection, dataLang);
     },
 
@@ -184,7 +184,7 @@ const ds = {
     reactions: {
 
         // Get Reaction
-        get: function (value, botIndex, isIDReturn) {
+        get: function(value, botIndex, isIDReturn) {
             return safeDS.reactions.get(value, botIndex, isIDReturn);
         }
 
@@ -200,22 +200,22 @@ const ds = {
         cmd: {
 
             // Warn
-            warn: function () {
+            warn: function() {
                 return safeDS.console.cmd.warn.apply(safeDS.console, arguments);
             },
 
             // Warn
-            log: function () {
+            log: function() {
                 return safeDS.console.cmd.log.apply(safeDS.console, arguments);
             },
 
             // Warn
-            error: function () {
+            error: function() {
                 return safeDS.console.cmd.error.apply(safeDS.console, arguments);
             },
 
             // Event
-            event: function () {
+            event: function() {
                 return safeDS.console.cmd.event.apply(safeDS.console, arguments);
             }
 
@@ -225,17 +225,17 @@ const ds = {
         discord: {
 
             // Warn
-            warn: function () {
+            warn: function() {
                 return safeDS.console.discord.warn.apply(safeDS.console, arguments);
             },
 
             // Warn
-            log: function () {
+            log: function() {
                 return safeDS.console.discord.log.apply(safeDS.console, arguments);
             },
 
             // Warn
-            error: function () {
+            error: function() {
                 return safeDS.console.discord.error.apply(safeDS.console, arguments);
             }
 
@@ -244,40 +244,40 @@ const ds = {
     },
 
     // Add Events
-    on: function (value, callback) {
+    on: function(value, callback) {
         return safeDS.events.on(value, callback);
     },
 
-    once: function (value, callback) {
+    once: function(value, callback) {
         return safeDS.events.once(value, callback);
     },
 
     // Remove Events
-    off: function (value, callback) {
+    off: function(value, callback) {
         return safeDS.events.off(value, callback);
     },
 
     // Trigger Event
-    emit: function () {
+    emit: function() {
         return safeDS.events.emit.apply(safeDS.events, arguments);
     },
 
     // Lang Load
-    loadLang: function (lang_name, values) {
+    loadLang: function(lang_name, values) {
         return safeDS.lang.load(lang_name, values, safeDS);
     },
 
     // Get Lang
-    getLang: function (lang) {
+    getLang: function(lang) {
         return safeDS.lang.getAll(lang);
     },
 
-    setMainLang: function (lang) {
+    setMainLang: function(lang) {
         return safeDS.lang.setMainLang(lang);;
     },
 
     // Get Bot
-    getBot: function (index) {
+    getBot: function(index) {
         if (safeDS.bot[index]) {
             return safeDS.bot[index];
         } else {
@@ -286,17 +286,17 @@ const ds = {
     },
 
     // Get List
-    getLangList: function () {
+    getLangList: function() {
         return safeDS.lang.getList();
     },
 
     // Exist
-    langExist: function (lang) {
+    langExist: function(lang) {
         return safeDS.lang.exist(lang);
     },
 
     // Get Lang Value
-    getLangValue: function (value, lang) {
+    getLangValue: function(value, lang) {
         return safeDS.lang.get(value, lang);
     },
 
@@ -310,11 +310,11 @@ const ds = {
         global: {
 
             // Set New Option
-            set: function (where, value) {
+            set: function(where, value) {
                 return safeDS.configManager.global.set(where, value, safeDS);
             },
 
-            get: function (where) {
+            get: function(where) {
                 return safeDS.configManager.global.get(where, safeDS);
             },
 
@@ -324,12 +324,12 @@ const ds = {
         bot: {
 
             // Set New Option
-            set: function (index, where, value) {
+            set: function(index, where, value) {
                 return safeDS.configManager.bot.set(index, where, value, safeDS);
             },
 
             // Get
-            get: function (index, where) {
+            get: function(index, where) {
                 return safeDS.configManager.bot.get(index, where, safeDS);
             },
 
@@ -339,22 +339,22 @@ const ds = {
         user: {
 
             // Validator
-            validator: function (b_index, index) {
+            validator: function(b_index, index) {
                 return safeDS.configManager.user.validator(b_index, index, safeDS);
             },
 
             // Set New Option
-            set: function (b_index, index, where, value) {
+            set: function(b_index, index, where, value) {
                 return safeDS.configManager.user.set(b_index, index, where, value, safeDS);
             },
 
             // Get
-            get: function (b_index, index, where) {
+            get: function(b_index, index, where) {
                 return safeDS.configManager.user.get(b_index, index, where, safeDS);
             },
 
             // Delete
-            delete: function (index, b_index) {
+            delete: function(index, b_index) {
                 return safeDS.configManager.user.delete(index, b_index, safeDS);
             },
 
@@ -364,17 +364,17 @@ const ds = {
         allUsers: {
 
             // Set New Option
-            set: function (b_index, where, value) {
+            set: function(b_index, where, value) {
                 return safeDS.configManager.allUsers.set(where, value, b_index, safeDS);
             },
 
             // Get
-            get: function (where, b_index) {
+            get: function(where, b_index) {
                 return safeDS.configManager.allUsers.get(where, b_index, safeDS);
             },
 
             // Delete
-            delete: function (b_index) {
+            delete: function(b_index) {
                 return safeDS.configManager.allUsers.delete(b_index, safeDS);
             },
 
@@ -384,19 +384,19 @@ const ds = {
         allBots: {
 
             // Set New Option
-            set: function (where, value) {
+            set: function(where, value) {
                 return safeDS.configManager.allBots.set(where, value, safeDS);
             },
 
             // Get
-            get: function (where) {
+            get: function(where) {
                 return safeDS.configManager.allBots.get(where, safeDS);
             },
 
         },
 
         // Get All
-        getAll: function () {
+        getAll: function() {
             return safeDS.configManager.getAll(safeDS);
         }
 
@@ -405,11 +405,11 @@ const ds = {
 };
 
 // Start Module
-ds.start = async function (tinyCfg) { return require('./functions/start')(tinyCfg, safeDS) };
+ds.start = async function(tinyCfg) { return require('./functions/start')(tinyCfg, safeDS) };
 
 // Detect Shutdown
 const ON_DEATH = require('death');
-safeDS.close_app = async function (signal, err) { return require('./functions/close_app')(signal, err, safeDS); };
+safeDS.close_app = async function(signal, err) { return require('./functions/close_app')(signal, err, safeDS); };
 ON_DEATH(safeDS.close_app);
 
 /*

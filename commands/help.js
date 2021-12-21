@@ -86,7 +86,7 @@ module.exports = async function(msg, data, safeDS, command_message) {
         }
 
         // Send Message
-        msg.channel.send({ embeds: message_data, content: safeDS.console.discord.log(`${safeDS.lang.get('help_message_info', data.lang)}`) });
+        msg.channel.send({ embeds: [message_data], content: safeDS.console.discord.log(`${safeDS.lang.get('help_message_info', data.lang)}`) });
 
         // Complete
         return true;
