@@ -3,7 +3,7 @@ module.exports = {
     prefix: 'prefix',
     description: 'cm_prefix_help',
     options: ['value'],
-    action: async function (msg, data, safeDS, command_message, message, app_permissions) {
+    action: async function(msg, data, safeDS, command_message, message, app_permissions) {
 
         // Detect Permission
         if (app_permissions.botSuperAdmin || app_permissions.superAdmin) {
@@ -40,7 +40,7 @@ module.exports = {
                     }, msg);
 
                     // Message
-                    await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_prefix_changed', data.lang)}`.replace('{prefix}', message_value));
+                    // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_prefix_changed', data.lang)}`.replace('{prefix}', message_value));
 
                 }
 
@@ -71,7 +71,7 @@ module.exports = {
             }, msg);
 
             // Send Message
-            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_prefix_not_allowed', data.lang)}`);
+            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_prefix_not_allowed', data.lang)}`);
 
         }
 

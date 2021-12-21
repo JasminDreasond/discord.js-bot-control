@@ -24,7 +24,7 @@ module.exports = {
                 }, msg);
 
                 // Send Message
-                await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_channel_change', data.lang)}`.replace('{channel}', msg.client.dbc_cache.admins[msg.author.id].channel.name).replace('{guild}', msg.client.dbc_cache.admins[msg.author.id].channel.guild.name));
+                // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_channel_change', data.lang)}`.replace('{channel}', msg.client.dbc_cache.admins[msg.author.id].channel.name).replace('{guild}', msg.client.dbc_cache.admins[msg.author.id].channel.guild.name));
 
             }
 

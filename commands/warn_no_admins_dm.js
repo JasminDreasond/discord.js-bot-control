@@ -3,7 +3,7 @@ module.exports = {
     prefix: 'dmwarn',
     description: 'help_dmwarn',
     extra_prefix_info: '{on | off}',
-    action: async function (msg, data, safeDS, command_message, message, app_permissions) {
+    action: async function(msg, data, safeDS, command_message, message, app_permissions) {
 
         // Detect Permission
         if (app_permissions.botSuperAdmin || app_permissions.superAdmin) {
@@ -27,7 +27,7 @@ module.exports = {
                     }, msg);
 
                     // Send Message
-                    await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_dmwarn_enabled', data.lang)}`);
+                    // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_dmwarn_enabled', data.lang)}`);
 
                 }
 
@@ -57,7 +57,7 @@ module.exports = {
                     }, msg);
 
                     // Send Message
-                    await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_dmwarn_disabled', data.lang)}`);
+                    // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_dmwarn_disabled', data.lang)}`);
 
                 }
 

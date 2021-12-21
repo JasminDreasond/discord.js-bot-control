@@ -3,7 +3,7 @@ module.exports = {
     prefix: 'user',
     description: 'cm_user_help',
     options: ['user_id'],
-    action: async function (msg, data, safeDS, command_message) {
+    action: async function(msg, data, safeDS, command_message) {
 
         // Get Command value
         const message_value = msg.content.substring(data.prefix.length + 5);
@@ -27,7 +27,7 @@ module.exports = {
                     }, msg);
 
                     // Send Message
-                    await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_user_change', data.lang)}`.replace('{user}', msg.client.dbc_cache.admins[msg.author.id].channel.tag).replace('{id}', msg.client.dbc_cache.admins[msg.author.id].channel.id));
+                    // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_user_change', data.lang)}`.replace('{user}', msg.client.dbc_cache.admins[msg.author.id].channel.tag).replace('{id}', msg.client.dbc_cache.admins[msg.author.id].channel.id));
 
                 }
 

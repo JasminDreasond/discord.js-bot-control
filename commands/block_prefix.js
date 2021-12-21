@@ -2,7 +2,7 @@ module.exports = {
 
     prefix: 'blockprefix',
     description: 'help_block_prefix',
-    action: async function (msg, data, safeDS, command_message, message, app_permissions) {
+    action: async function(msg, data, safeDS, command_message, message, app_permissions) {
 
         // Detect Permission
         if (app_permissions.botSuperAdmin || app_permissions.superAdmin) {
@@ -63,7 +63,7 @@ module.exports = {
                             }
 
                             // Send Message
-                            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{prefix}', message_value[1]));
+                            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{prefix}', message_value[1]));
 
                         }
 
@@ -126,7 +126,7 @@ module.exports = {
                         }
 
                         // Send Message
-                        await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{prefix}', message_value[1]));
+                        // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{prefix}', message_value[1]));
 
                     }
 
@@ -171,7 +171,7 @@ module.exports = {
                         }
 
                         // Send Message
-                        await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`);
+                        // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`);
 
                     }
 
@@ -305,7 +305,7 @@ module.exports = {
             }, msg);
 
             // Send Message
-            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_blockprefix_not_allowed', data.lang)}`);
+            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_blockprefix_not_allowed', data.lang)}`);
 
         }
 

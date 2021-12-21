@@ -2,7 +2,7 @@ module.exports = {
 
     prefix: 'reactionmanager',
     description: 'help_reactionmanager',
-    action: async function (msg, data, safeDS, command_message, message, app_permissions) {
+    action: async function(msg, data, safeDS, command_message, message, app_permissions) {
 
         // Get Command value
         const message_value = msg.content.substring(data.prefix.length + 16).split(' ');
@@ -117,7 +117,7 @@ module.exports = {
                             await safeDS.events.emit('command_reactionChangedGlobal', emit_values, msg);
 
                             // Send Message
-                            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_reactionmanager_change_global', data.lang)}`.replace('{reaction}', the_reaction).replace('{type}', reaction_type));
+                            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_reactionmanager_change_global', data.lang)}`.replace('{reaction}', the_reaction).replace('{type}', reaction_type));
 
                         }
 
@@ -141,7 +141,7 @@ module.exports = {
                             await safeDS.events.emit('command_reactionChangedAllBots', emit_values, msg);
 
                             // Send Message
-                            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_reactionmanager_change_all_bots', data.lang)}`.replace('{reaction}', the_reaction).replace('{type}', reaction_type));
+                            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_reactionmanager_change_all_bots', data.lang)}`.replace('{reaction}', the_reaction).replace('{type}', reaction_type));
 
                         }
 
@@ -161,7 +161,7 @@ module.exports = {
                             await safeDS.events.emit('command_reactionChanged', emit_values, msg);
 
                             // Send Message
-                            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_reactionmanager_change', data.lang)}`.replace('{reaction}', the_reaction).replace('{type}', reaction_type));
+                            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_reactionmanager_change', data.lang)}`.replace('{reaction}', the_reaction).replace('{type}', reaction_type));
 
                         }
 

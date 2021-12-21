@@ -2,7 +2,7 @@ module.exports = {
 
     prefix: 'voice',
     description: 'cm_voice_channel_help',
-    action: async function (msg, data, safeDS, command_message) {
+    action: async function(msg, data, safeDS, command_message) {
 
         // Detect Other Voice Channel
         if (!msg.client.dbc_cache.admins[msg.author.id].voice) {
@@ -33,7 +33,7 @@ module.exports = {
                         msg.client.dbc_cache.admins[msg.author.id].voiceConnectionPlaying = false;
 
                         // Send Message
-                        await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_voice_channel_change', data.lang)}`.replace('{channel}', msg.client.dbc_cache.admins[msg.author.id].voice.name).replace('{guild}', msg.client.dbc_cache.admins[msg.author.id].voice.guild.name));
+                        // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_voice_channel_change', data.lang)}`.replace('{channel}', msg.client.dbc_cache.admins[msg.author.id].voice.name).replace('{guild}', msg.client.dbc_cache.admins[msg.author.id].voice.guild.name));
 
                         // Complete
                         return;

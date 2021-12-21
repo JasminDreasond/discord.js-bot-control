@@ -2,7 +2,7 @@ module.exports = {
 
     prefix: 'shutdown',
     description: 'help_shutdown',
-    action: async function (msg, data, safeDS, command_message, message, app_permissions) {
+    action: async function(msg, data, safeDS, command_message, message, app_permissions) {
 
         // Check Global Permission
         if (safeDS.config.allowShutdown) {
@@ -10,7 +10,7 @@ module.exports = {
             // Shutdown
             if (app_permissions.superAdmin) {
 
-                await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_shutdown_result', data.lang)}`, null, true);
+                // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_shutdown_result', data.lang)}`, null, true);
 
                 // Emit Event
                 await safeDS.events.emit('command_shutdown', {
@@ -31,7 +31,7 @@ module.exports = {
                 }, msg);
 
                 // Send Message
-                await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_shutdown_not_allowed', data.lang)}`, null, true);
+                // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_shutdown_not_allowed', data.lang)}`, null, true);
 
             }
 

@@ -3,7 +3,7 @@ module.exports = {
     prefix: 'lang',
     description: 'cm_lang_help',
     options: ['value'],
-    action: async function (msg, data, safeDS, command_message, message, app_permissions) {
+    action: async function(msg, data, safeDS, command_message, message, app_permissions) {
 
         // Change Lang
         if (app_permissions.botSuperAdmin || app_permissions.superAdmin) {
@@ -30,7 +30,7 @@ module.exports = {
                         }, msg);
 
                         // New Message
-                        await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_lang_result', data.lang)}`.replace('{lang}', message_value));
+                        // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_lang_result', data.lang)}`.replace('{lang}', message_value));
 
                     }
 
@@ -178,7 +178,7 @@ module.exports = {
             }, msg);
 
             // Send Message
-            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_lang_not_allowed', data.lang)}`);
+            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_lang_not_allowed', data.lang)}`);
 
         }
 

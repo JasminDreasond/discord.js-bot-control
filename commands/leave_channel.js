@@ -2,7 +2,7 @@ module.exports = {
 
     prefix: 'leavechannel',
     description: 'help_leave_channel',
-    action: async function (msg, data, safeDS, command_message) {
+    action: async function(msg, data, safeDS, command_message) {
 
         // Exist
         if (msg.client.dbc_cache.admins[msg.author.id].channel) {
@@ -52,12 +52,12 @@ module.exports = {
 
             // Is User Channel
             if (item_type === "user") {
-                await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_leave_user_channel', data.lang)}`.replace('{user}', channel_name).replace('{id}', channel_id));
+                // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_leave_user_channel', data.lang)}`.replace('{user}', channel_name).replace('{id}', channel_id));
             }
 
             // Nope
             else {
-                await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_leave_channel', data.lang)}`.replace('{channel}', channel_name).replace('{guild}', channel_id));
+                // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_leave_channel', data.lang)}`.replace('{channel}', channel_name).replace('{guild}', channel_id));
             }
 
         }

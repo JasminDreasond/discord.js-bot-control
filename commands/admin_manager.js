@@ -2,7 +2,7 @@ module.exports = {
 
     prefix: 'admin',
     description: 'help_admin',
-    action: async function (msg, data, safeDS, command_message, message, app_permissions) {
+    action: async function(msg, data, safeDS, command_message, message, app_permissions) {
 
         // Get Command value
         const message_value = command_message.substring(data.prefix.length + 6).split(' ');
@@ -14,7 +14,7 @@ module.exports = {
             if (message_value[0] !== "list" && (app_permissions.botSuperAdmin || app_permissions.superAdmin)) {
 
                 // Template Script
-                const change_admin_value = async function (config_option) {
+                const change_admin_value = async function(config_option) {
 
                     // Lang Text
                     let message_lang_name = '';
@@ -123,7 +123,7 @@ module.exports = {
                                             }
 
                                             // Send Message
-                                            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{option}', message_value[0]).replace('{value}', message_value[2].id).replace('{username}', show_name));
+                                            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{option}', message_value[0]).replace('{value}', message_value[2].id).replace('{username}', show_name));
 
                                         }
 
@@ -165,7 +165,7 @@ module.exports = {
                                             }
 
                                             // Send Message
-                                            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{option}', message_value[0]).replace('{guild_value}', message_value[2].id).replace('{guild_name}', message_value[2].name).replace('{role_value}', message_value[3].id).replace('{role_name}', show_name));
+                                            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{option}', message_value[0]).replace('{guild_value}', message_value[2].id).replace('{guild_name}', message_value[2].name).replace('{role_value}', message_value[3].id).replace('{role_name}', show_name));
 
                                         }
 
@@ -222,7 +222,7 @@ module.exports = {
                                             }
 
                                             // Send Message
-                                            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{option}', message_value[0]).replace('{value}', message_value[2].id).replace('{username}', show_name));
+                                            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{option}', message_value[0]).replace('{value}', message_value[2].id).replace('{username}', show_name));
 
                                         }
 
@@ -279,7 +279,7 @@ module.exports = {
                                             }
 
                                             // Send Message
-                                            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{option}', message_value[0]).replace('{guild_value}', message_value[2].id).replace('{guild_name}', message_value[2].name).replace('{role_value}', message_value[3].id).replace('{role_name}', show_name));
+                                            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{option}', message_value[0]).replace('{guild_value}', message_value[2].id).replace('{guild_name}', message_value[2].name).replace('{role_value}', message_value[3].id).replace('{role_name}', show_name));
 
                                         }
 
@@ -342,7 +342,7 @@ module.exports = {
                                 }
 
                                 // Send Message
-                                await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{option}', message_value[0]));
+                                // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{option}', message_value[0]));
 
                             }
 
@@ -653,7 +653,7 @@ module.exports = {
                 }, msg);
 
                 // Send Message
-                await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_admin_not_allowed', data.lang)}`);
+                // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_admin_not_allowed', data.lang)}`);
 
             }
 

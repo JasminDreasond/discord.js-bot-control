@@ -3,7 +3,7 @@ module.exports = {
     prefix: 'embedcolor',
     description: 'help_embedcolor',
     options: ['value'],
-    action: async function (msg, data, safeDS, command_message, message, app_permissions) {
+    action: async function(msg, data, safeDS, command_message, message, app_permissions) {
 
         // Detect Permission
         if (app_permissions.botSuperAdmin || app_permissions.superAdmin) {
@@ -27,7 +27,7 @@ module.exports = {
                     }, msg);
 
                     // Message
-                    await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_embedcolor_changed', data.lang)}`.replace('{color}', message_value));
+                    // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_embedcolor_changed', data.lang)}`.replace('{color}', message_value));
 
                 }
 
@@ -58,7 +58,7 @@ module.exports = {
             }, msg);
 
             // Send Message
-            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_embedcolor_not_allowed', data.lang)}`);
+            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_embedcolor_not_allowed', data.lang)}`);
 
         }
 

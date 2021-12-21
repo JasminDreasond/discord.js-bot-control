@@ -3,13 +3,13 @@ module.exports = {
     prefix: 'sound',
     description: 'help_sound',
     options: ['value'],
-    action: async function (msg, data, safeDS, command_message, message, app_permissions) {
+    action: async function(msg, data, safeDS, command_message, message, app_permissions) {
 
         // Get File List
         const fileList = [];
 
         // Get Files
-        const get_files = function (id) {
+        const get_files = function(id) {
 
             // Validate Item
             if (safeDS.soundManager.folders[id] && safeDS.soundManager.folders[id].ready && safeDS.soundManager.folders[id].filesReady && !safeDS.soundManager.folders[id].error && safeDS.soundManager.folders[id].files) {
@@ -43,7 +43,7 @@ module.exports = {
         };
 
         // List FIles
-        const file_list_view = async function () {
+        const file_list_view = async function() {
 
             // Prepare Array PAgination
             const paginate = require("paginate-array");
@@ -65,7 +65,7 @@ module.exports = {
                 for (const item in paginateCollection.data) {
 
                     // Exist Prefix
-                    if (typeof paginateCollection.data[item].fileID === "string" &&  paginateCollection.data[item].folder && typeof paginateCollection.data[item].folder.id === "string") {
+                    if (typeof paginateCollection.data[item].fileID === "string" && paginateCollection.data[item].folder && typeof paginateCollection.data[item].folder.id === "string") {
 
                         // Insert Prefix
                         let name = paginateCollection.data[item].fileID;
@@ -234,14 +234,14 @@ module.exports = {
                                         msg.client.dbc_cache.admins[msg.author.id].voiceConnection.play(the_file.file.path);
 
                                         // Wait Sound Ends
-                                        setTimeout(async function () {
+                                        setTimeout(async function() {
 
                                             // Reset Values
                                             //await msg.client.dbc_cache.admins[msg.author.id].voiceConnection.setSpeaking('none');
                                             msg.client.dbc_cache.admins[msg.author.id].voiceConnectionPlaying = false;
 
                                             // Send Message
-                                            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_sound_result_ended', data.lang)}`.replace('{file}', the_file.fileID).replace('{folder_id}', the_file.folder.id));
+                                            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_sound_result_ended', data.lang)}`.replace('{file}', the_file.fileID).replace('{folder_id}', the_file.folder.id));
 
                                             // Return
                                             return;
@@ -249,7 +249,7 @@ module.exports = {
                                         }, Number(the_file.file.duration * 1000) + 2000);
 
                                         // Send Message
-                                        await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_sound_result', data.lang)}`.replace('{file}', the_file.fileID).replace('{folder_id}', the_file.folder.id));
+                                        // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_sound_result', data.lang)}`.replace('{file}', the_file.fileID).replace('{folder_id}', the_file.folder.id));
 
                                         // Complete
                                         return;

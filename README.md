@@ -313,7 +313,6 @@ await dbc.start({
     extra: The secondary options of the message method. It would be the same as typing: msg.channel.send(message, extra);
 
 */
-await dbc.console.file.sendDSUserLog(msg, log_type, log_function, discord_log_option, message, extra, isGlobalFile);
 
 /* 
 
