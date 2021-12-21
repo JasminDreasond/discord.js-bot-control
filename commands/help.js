@@ -58,20 +58,17 @@ module.exports = async function(msg, data, safeDS, command_message) {
                     }
 
                     // Add to Field
-                    message_data.addField({
-                        name: name,
-                        value: value
-                    });
+                    message_data.addField(name, value);
 
                 }
 
                 // Error
                 else {
                     // Add to Field
-                    message_data.addField({
-                        name: `${safeDS.lang.get('help_without_prefix', data.lang)}`,
-                        value: `${safeDS.lang.get('help_without_prefix_value', data.lang)}`.replace('{index}', item - safeDS.defaultCommands.length)
-                    });
+                    message_data.addField(
+                        `${safeDS.lang.get('help_without_prefix', data.lang)}`,
+                        `${safeDS.lang.get('help_without_prefix_value', data.lang)}`.replace('{index}', item - safeDS.defaultCommands.length)
+                    );
                 }
 
             }
@@ -81,10 +78,10 @@ module.exports = async function(msg, data, safeDS, command_message) {
         else {
 
             // Add to Field
-            message_data.addField({
-                name: safeDS.lang.get('help_is_empty', data.lang),
-                value: safeDS.lang.get('help_is_empty_info', data.lang)
-            });
+            message_data.addField(
+                safeDS.lang.get('help_is_empty', data.lang),
+                safeDS.lang.get('help_is_empty_info', data.lang)
+            );
 
         }
 
