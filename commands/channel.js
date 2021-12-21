@@ -3,7 +3,7 @@ module.exports = {
     prefix: 'channel',
     description: 'cm_channel_help',
     options: ['channel_id'],
-    action: async function (msg, data, safeDS, command_message) {
+    action: async function(msg, data, safeDS, command_message) {
 
         // Get Command value
         const message_value = msg.content.substring(data.prefix.length + 8);
@@ -15,7 +15,7 @@ module.exports = {
             msg.client.dbc_cache.admins[msg.author.id].channel = await msg.client.channels.fetch(message_value);
 
             // Exist
-            if (msg.client.dbc_cache.admins[msg.author.id].channel && msg.client.dbc_cache.admins[msg.author.id].channel.type === "text") {
+            if (msg.client.dbc_cache.admins[msg.author.id].channel && msg.client.dbc_cache.admins[msg.author.id].channel.type === "GUILD_TEXT") {
 
                 // Emit Event
                 await safeDS.events.emit('command_channelSelected', {
