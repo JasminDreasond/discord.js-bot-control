@@ -41,7 +41,7 @@ const tiny_console = {
                         }
 
                         // Validator and Send
-                        if (typeof id === "string" && id !== "global" && typeof callback === "string" && Array.isArray(obj) && tiny_console.files[type] && tiny_console.files[type][id] && typeof tiny_console.files[type][id][callback] === "function") {
+                        if (typeof id === "string" && id !== "global" && typeof callback === "string" && Array.isArray(obj) && tiny_console.files && tiny_console.files[type] && tiny_console.files[type][id] && typeof tiny_console.files[type][id][callback] === "function") {
 
                             tiny_console.defaultConsoleCall('console', obj, 'cmd', 'base', 'base', false, false, false, id, callback, type);
                             return false;
