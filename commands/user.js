@@ -27,7 +27,7 @@ module.exports = {
                     }, msg);
 
                     // Send Message
-                    // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_user_change', data.lang)}`.replace('{user}', msg.client.dbc_cache.admins[msg.author.id].channel.tag).replace('{id}', msg.client.dbc_cache.admins[msg.author.id].channel.id));
+                    await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_user_change', data.lang)}`.replace('{user}', msg.client.dbc_cache.admins[msg.author.id].channel.tag).replace('{id}', msg.client.dbc_cache.admins[msg.author.id].channel.id));
 
                 }
 

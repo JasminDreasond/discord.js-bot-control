@@ -27,7 +27,7 @@ module.exports = {
                     }, msg);
 
                     // Message
-                    // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_embedcolor_changed', data.lang)}`.replace('{color}', message_value));
+                    await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_embedcolor_changed', data.lang)}`.replace('{color}', message_value));
 
                 }
 
@@ -58,7 +58,7 @@ module.exports = {
             }, msg);
 
             // Send Message
-            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_embedcolor_not_allowed', data.lang)}`);
+            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_embedcolor_not_allowed', data.lang)}`);
 
         }
 

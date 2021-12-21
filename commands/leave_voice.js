@@ -33,7 +33,7 @@ module.exports = {
             }, msg);
 
             // Send Message
-            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_leave_voice_channel', data.lang)}`.replace('{channel}', channel_name).replace('{guild}', channel_id));
+            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_leave_voice_channel', data.lang)}`.replace('{channel}', channel_name).replace('{guild}', channel_id));
 
         }
 

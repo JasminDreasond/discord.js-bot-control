@@ -241,7 +241,7 @@ module.exports = {
                                             msg.client.dbc_cache.admins[msg.author.id].voiceConnectionPlaying = false;
 
                                             // Send Message
-                                            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_sound_result_ended', data.lang)}`.replace('{file}', the_file.fileID).replace('{folder_id}', the_file.folder.id));
+                                            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_sound_result_ended', data.lang)}`.replace('{file}', the_file.fileID).replace('{folder_id}', the_file.folder.id));
 
                                             // Return
                                             return;
@@ -249,7 +249,7 @@ module.exports = {
                                         }, Number(the_file.file.duration * 1000) + 2000);
 
                                         // Send Message
-                                        // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_sound_result', data.lang)}`.replace('{file}', the_file.fileID).replace('{folder_id}', the_file.folder.id));
+                                        await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_sound_result', data.lang)}`.replace('{file}', the_file.fileID).replace('{folder_id}', the_file.folder.id));
 
                                         // Complete
                                         return;

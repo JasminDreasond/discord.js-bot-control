@@ -21,7 +21,7 @@ module.exports = {
             }, msg);
 
             // Send Message
-            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_presence_changed', data.lang)}`.replace('{presence}', message_value));
+            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_presence_changed', data.lang)}`.replace('{presence}', message_value));
 
             return;
 

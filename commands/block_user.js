@@ -60,7 +60,7 @@ module.exports = {
                         }
 
                         // Send Message
-                        // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{prefix}', message_value[1]));
+                        await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{prefix}', message_value[1]));
 
                     }
 
@@ -113,7 +113,7 @@ module.exports = {
                         }
 
                         // Send Message
-                        // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{prefix}', message_value[1]));
+                        await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`.replace('{prefix}', message_value[1]));
 
                     }
 
@@ -158,7 +158,7 @@ module.exports = {
                         }
 
                         // Send Message
-                        // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`);
+                        await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get(message_lang_name, data.lang)}`);
 
                     }
 
@@ -292,7 +292,7 @@ module.exports = {
             }, msg);
 
             // Send Message
-            // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_blockuser_not_allowed', data.lang)}`);
+            await safeDS.console.file.sendDSUserLog(msg, 'mod', 'error', 'error', `${safeDS.lang.get('cm_blockuser_not_allowed', data.lang)}`);
 
         }
 

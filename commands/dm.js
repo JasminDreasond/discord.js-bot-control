@@ -27,7 +27,7 @@ module.exports = {
                     }, msg);
 
                     // Send Message
-                    // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_dm_enabled', data.lang)}`);
+                    await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_dm_enabled', data.lang)}`);
 
                 }
 
@@ -57,7 +57,7 @@ module.exports = {
                     }, msg);
 
                     // Send Message
-                    // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_dm_disabled', data.lang)}`);
+                    await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_dm_disabled', data.lang)}`);
 
                 }
 

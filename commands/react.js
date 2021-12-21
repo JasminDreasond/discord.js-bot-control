@@ -51,7 +51,7 @@ module.exports = {
                                     }, msg, the_message, reaction);
 
                                     // Send Message
-                                    // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_reaction_sent', data.lang)}`.replace('{message_id}', message_value[1]).replace('{channel_name}', tiny_channel.name).replace('{guild_name}', tiny_channel.guild.name).replace('{reaction}', message_value[2]));
+                                    await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_reaction_sent', data.lang)}`.replace('{message_id}', message_value[1]).replace('{channel_name}', tiny_channel.name).replace('{guild_name}', tiny_channel.guild.name).replace('{reaction}', message_value[2]));
 
                                 }).catch((err) => {
 
@@ -78,7 +78,7 @@ module.exports = {
                                     }, msg, the_message, reaction);
 
                                     // Send Message
-                                    // await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_reaction_removed', data.lang)}`.replace('{message_id}', message_value[1]).replace('{channel_name}', tiny_channel.name).replace('{guild_name}', tiny_channel.guild.name).replace('{reaction}', message_value[2]));
+                                    await safeDS.console.file.sendDSUserLog(msg, 'mod', 'info', 'log', `${safeDS.lang.get('cm_reaction_removed', data.lang)}`.replace('{message_id}', message_value[1]).replace('{channel_name}', tiny_channel.name).replace('{guild_name}', tiny_channel.guild.name).replace('{reaction}', message_value[2]));
 
                                 }).catch((err) => {
 
