@@ -17,7 +17,7 @@ module.exports = {
                 msg.client.dbc_cache.admins[msg.author.id].voice = await msg.client.channels.fetch(message_value);
 
                 // Exist
-                if (msg.client.dbc_cache.admins[msg.author.id].voice && msg.client.dbc_cache.admins[msg.author.id].voice.type === "voice") {
+                if (msg.client.dbc_cache.admins[msg.author.id].voice && msg.client.dbc_cache.admins[msg.author.id].voice.type === "GUILD_VOICE") {
 
                     msg.client.dbc_cache.admins[msg.author.id].voice.join().then(async connection => {
 
